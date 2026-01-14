@@ -1,6 +1,6 @@
 ! Title: 🛡️ Block JS - Unbreak (Test sites)
-! Version: 15December2025v1
-! Expires: 12 hours
+! Version: 14Jan2026v1
+! Expires: 1 hour
 ! Description: Unbreak websites when JS is blocked.
 ! Homepage: https://dove.celenity.dev
 

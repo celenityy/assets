@@ -1,6 +1,6 @@
 ! Title: Dove filters
-! Version: 26June2025v1
-! Expires: 12 hours
+! Version: 14Jan2026v1
+! Expires: 1 hour
 ! Homepage: https://dove.celenity.dev
 
 !! This list includes filters designed specifically to work with Dove and derivatives.
