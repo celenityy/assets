@@ -1031,6 +1031,7 @@
     "click2load": {
         "content": "filters",
         "group": "privacy",
+        "off": true,
         "title": "⛔ yokoffing's click2load filters",
         "contentURL": "https://raw.githubusercontent.com/yokoffing/filterlists/main/click2load.txt",
         "supportURL": "https://github.com/yokoffing/filterlists/issues"
@@ -1148,6 +1149,13 @@
         "contentURL": "https://gitlab.com/celenityy/BadBlock/-/raw/pages/hardened/block-page-visibility.txt",
         "supportURL": "https://badblock.celenity.dev/issues"
     },
+    "privacyessentials": {
+        "content": "filters",
+        "group": "privacy",
+        "title": "🔒 Privacy Essentials",
+        "contentURL": "https://raw.githubusercontent.com/yokoffing/filterlists/main/privacy_essentials.txt",
+        "supportURL": "https://github.com/yokoffing/filterlists/issues"
+    },
     "sproutannoyances": {
         "content": "filters",
         "group": "annoyances",
@@ -1170,6 +1178,14 @@
         "title": "Steven Black (Unified)",
         "tags": "ads privacy security",
         "contentURL": "https://gitlab.com/StevenBlack/hosts/-/raw/master/hosts",
+        "supportURL": "https://github.com/StevenBlack/hosts/issues"
+    },
+    "stevenblackfng": {
+        "content": "filters",
+        "group": "social",
+        "off": true,
+        "title": "Steven Black (fakenews + gambling)",
+        "contentURL": "https://gitlab.com/StevenBlack/hosts/-/raw/master/alternates/fakenews-gambling-only/hosts",
         "supportURL": "https://github.com/StevenBlack/hosts/issues"
     },
     "threatintel": {
@@ -1210,6 +1226,14 @@
         "title": "⚠️ BadBlock - Unsafe",
         "contentURL": "https://gitlab.com/celenityy/BadBlock/-/raw/pages/abp/unsafe.txt",
         "supportURL": "https://badblock.celenity.dev/issues"
+    },
+    "yal": {
+        "content": "filters",
+        "group": "annoyances",
+        "off": true,
+        "title": "🛠️ yokoffing's Annoyance List",
+        "contentURL": "https://raw.githubusercontent.com/yokoffing/filterlists/main/annoyance_list.txt",
+        "supportURL": "https://github.com/yokoffing/filterlists/issues"
     },
     "dove-filters": {
         "content": "filters",
