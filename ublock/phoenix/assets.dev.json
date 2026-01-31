@@ -1170,9 +1170,9 @@
         "content": "filters",
         "group": "annoyances",
         "off": true,
-        "title": "🔞 oisd nsfw",
-        "contentURL": "https://nsfw.oisd.nl/",
-        "supportURL": "https://oisd.nl/report"
+        "title": "🔞 HaGeZi - NSFW",
+        "contentURL": "https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/adblock/nsfw.txt",
+        "supportURL": "https://github.com/hagezi/dns-blocklists/issues"
     },
     "oisd": {
         "content": "filters",
