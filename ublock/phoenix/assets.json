@@ -1174,15 +1174,6 @@
         "contentURL": "https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/adblock/nsfw.txt",
         "supportURL": "https://github.com/hagezi/dns-blocklists/issues"
     },
-    "oisd": {
-        "content": "filters",
-        "group": "multipurpose",
-        "off": true,
-        "title": "oisd",
-        "tags": "ads privacy security",
-        "contentURL": "https://big.oisd.nl/",
-        "supportURL": "https://oisd.nl/report"
-    },
     "pagevis": {
         "content": "filters",
         "group": "default",
@@ -1212,18 +1203,9 @@
         "contentURL": "https://gitlab.com/DandelionSprout/adfilt/-/raw/master/Dandelion%20Sprout's%20Anti-Malware%20List.txt",
         "supportURL": "https://github.com/DandelionSprout/adfilt/issues"
     },
-    "stevenblack": {
-        "content": "filters",
-        "group": "multipurpose",
-        "off": true,
-        "title": "Steven Black (Unified)",
-        "tags": "ads privacy security",
-        "contentURL": "https://gitlab.com/StevenBlack/hosts/-/raw/master/hosts",
-        "supportURL": "https://github.com/StevenBlack/hosts/issues"
-    },
     "stevenblackfng": {
         "content": "filters",
-        "group": "social",
+        "group": "annoyances",
         "off": true,
         "title": "Steven Black (fakenews + gambling)",
         "contentURL": "https://gitlab.com/StevenBlack/hosts/-/raw/master/alternates/fakenews-gambling-only/hosts",
