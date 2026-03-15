@@ -1,5 +1,5 @@
 ! Title: 🛡️ Block JS - Unbreak
-! Version: 14Jan2026v1
+! Version: 14March2026v1
 ! Expires: 1 hour
 ! Description: Unbreak websites when JS is blocked.
 ! Homepage: https://dove.celenity.dev
@@ -7,9 +7,6 @@
 ! Re-enables JS for websites known to cause breakage/issues.
 
 ! This list is meant to be used ALONGSIDE 'Block JS', though it is entirely optional.
-
-! Required for installing add-ons
-addons.thunderbird.net#@#^script
 
 ! Required for various functionality (such as viewing user pages - ex. https://addons.mozilla.org/firefox/user/4757633/)
 addons.mozilla.org#@#^script
