@@ -204,20 +204,6 @@
         ],
         "supportURL": "https://github.com/uBlockOrigin/uAssets"
     },
-    "block-lan": {
-        "content": "filters",
-        "group": "privacy",
-        "title": "Block Outsider Intrusion into LAN",
-        "tags": "privacy security",
-        "contentURL": "https://ublockorigin.github.io/uAssets/filters/lan-block.txt",
-        "cdnURLs": [
-            "https://ublockorigin.github.io/uAssetsCDN/filters/lan-block.txt",
-            "https://ublockorigin.pages.dev/filters/lan-block.txt",
-            "https://cdn.jsdelivr.net/gh/uBlockOrigin/uAssetsCDN@main/filters/lan-block.txt",
-            "https://cdn.statically.io/gh/uBlockOrigin/uAssetsCDN/main/filters/lan-block.txt"
-        ],
-        "supportURL": "https://github.com/uBlockOrigin/uAssets"
-    },
     "easyprivacy": {
         "content": "filters",
         "group": "privacy",
