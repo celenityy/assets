@@ -509,6 +509,7 @@
     "dpollock-0": {
         "content": "filters",
         "group": "multipurpose",
+        "off": true,
         "updateAfter": 13,
         "title": "Dan Pollock’s hosts file",
         "tags": "ads privacy security",
@@ -518,10 +519,10 @@
     "plowe-0": {
         "content": "filters",
         "group": "multipurpose",
+        "off": true,
         "updateAfter": 13,
         "title": "Peter Lowe’s Ad and tracking server list",
         "tags": "ads privacy security",
-        "preferred": true,
         "contentURL": [
             "https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=1&mimetype=plaintext",
             "assets/thirdparties/pgl.yoyo.org/as/serverlist.txt",
