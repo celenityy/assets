@@ -1180,7 +1180,7 @@
         "content": "filters",
         "group": "default",
         "title": "Phoenix filters - Quick fixes",
-        "contentURL": "https://gitlab.com/celenityy/Phoenix/-/raw/pages/uBlock/quick-fixes.txt",
+        "contentURL": "https://assets.celenity.dev/ublock/phoenix/quick-fixes.txt",
         "supportURL": "https://phoenix.celenity.dev/issues"
     },
     "sproutannoyances": {
