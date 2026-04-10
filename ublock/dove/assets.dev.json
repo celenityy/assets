@@ -2,7 +2,7 @@
     "assets.json": {
         "content": "internal",
         "updateAfter": 1,
-        "contentURL": "https://gitlab.com/celenityy/assets/-/raw/pages/ublock/dove/assets.dev.json"
+        "contentURL": "https://assets.celenity.dev/ublock/dove/assets.dev.json"
     },
     "public_suffix_list.dat": {
         "content": "internal",
@@ -16,7 +16,7 @@
         "content": "internal",
         "updateAfter": 1,
         "contentURL": [
-            "https://gitlab.com/celenityy/assets/-/raw/pages/ublock/badlists.txt"
+            "https://assets.celenity.dev/ublock/badlists.txt"
         ]
     },
     "ublock-filters": {
@@ -1226,7 +1226,7 @@
         "group": "default",
         "parent": "🛡️ Block JS",
         "title": "🛡️ Block JS - Unbreak",
-        "contentURL": "https://gitlab.com/celenityy/assets/-/raw/pages/ublock/dove/unbreak-js.txt",
+        "contentURL": "https://assets.celenity.dev/ublock/dove/unbreak-js.txt",
         "supportURL": "https://dove.celenity.dev/issues",
         "instructionURL": "https://dove.celenity.dev"
     },
@@ -1236,7 +1236,7 @@
         "parent": "🛡️ Block JS",
         "off": true,
         "title": "🛡️ Block JS - Unbreak (Testing)",
-        "contentURL": "https://gitlab.com/celenityy/assets/-/raw/pages/ublock/dove/unbreak-js-testing.txt",
+        "contentURL": "https://assets.celenity.dev/ublock/dove/unbreak-js-testing.txt",
         "supportURL": "https://dove.celenity.dev/issues",
         "instructionURL": "https://dove.celenity.dev"
     }

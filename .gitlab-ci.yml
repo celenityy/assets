@@ -1,19 +1,163 @@
-image: busybox
-
+include:
+  - component: $CI_SERVER_FQDN/components/slsa/provenance-signer@0.1.1
+    inputs:
+      bundle_file: provenance.json
+      job_name: push-assets-generate-provenance-log-get-sources
+      stage: provenance
+      target_artifact: $CI_PROJECT_DIR/build/logs/get_sources.log
+  - component: $CI_SERVER_FQDN/components/slsa/provenance-signer@0.1.1
+    inputs:
+      bundle_file: provenance.json
+      job_name: push-assets-generate-provenance-log-push
+      stage: provenance
+      target_artifact: $CI_PROJECT_DIR/build/logs/push-all.log
+  
 default:
   cache: []
 
-pages:
-  stage: deploy
-  script:
-    - echo "The site will be deployed to $CI_PAGES_URL"
-    - mkdir .public
-    - cp -rf -- * .public
-    - mv .public public
-  artifacts:
-    paths:
-      - public
+stages:
+  - update_assets
+  - provenance
+
+push-assets:
+  image: fedora:43
+  stage: update_assets
   rules:
-    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+    - if: $CI_PROJECT_NAMESPACE != "celenityy"
+      when: never
+    - if: $CI_COMMIT_TAG
+    - if: $CI_COMMIT_BRANCH == "main"
+      changes:
+      - .gitlab-ci.yml
+      - ublock/badlists.txt
+      - ublock/dove/assets.dev.json
+      - ublock/dove/assets.json
+      - ublock/dove/filters.txt
+      - ublock/dove/unbreak-js.txt
+      - ublock/dove/unbreak-js-testing.txt
+      - ublock/phoenix/assets.dev.json
+      - ublock/phoenix/assets.json
+      - ublock/phoenix/filters.txt
+      - ublock/phoenix/quick-fixes.txt
+      - ublock/titanium/assets.dev.json
+      - ublock/titanium/assets.json
+      - scripts/env.sh
+      - scripts/env_common.sh
+      - scripts/env_external.sh
+      - scripts/env_helpers.sh
+      - scripts/get_sources.sh
+      - scripts/get_sources-cel.sh
+      - scripts/push-assets.sh
+      - scripts/push-assets-cel.sh
+      - scripts/utilities.sh
+      - scripts/versions.sh
   tags:
     - saas-linux-2xlarge-amd64
+  variables:
+    CEL_ASSETS_S3_ACCESS_KEY_FILE: /opt/celenity/celenity-assets-s3-access-key.txt
+    CEL_ASSETS_S3_BUCKET_NAME_FILE: /opt/celenity/celenity-assets-s3-bucket-name.txt
+    CEL_ASSETS_S3_ENDPOINT_FILE: /opt/celenity/celenity-assets-s3-endpoint.txt
+    CEL_ASSETS_S3_SECRET_KEY_FILE: /opt/celenity/celenity-assets-s3-secret-key.txt
+    RUNNER_GENERATE_ARTIFACTS_METADATA: true
+  before_script:
+    - sudo dnf update -y --refresh
+    - mkdir -p /opt/celenity
+
+    - touch "${CEL_ASSETS_S3_ACCESS_KEY_FILE}"
+    - chmod 600 "${CEL_ASSETS_S3_ACCESS_KEY_FILE}"
+    - echo -n "${CEL_ASSETS_S3_ACCESS_KEY}" > "${CEL_ASSETS_S3_ACCESS_KEY_FILE}"
+
+    - touch "${CEL_ASSETS_S3_BUCKET_NAME_FILE}"
+    - chmod 600 "${CEL_ASSETS_S3_BUCKET_NAME_FILE}"
+    - echo -n "${CEL_ASSETS_S3_BUCKET_NAME}" > "${CEL_ASSETS_S3_BUCKET_NAME_FILE}"
+
+    - touch "${CEL_ASSETS_S3_ENDPOINT_FILE}"
+    - chmod 600 "${CEL_ASSETS_S3_ENDPOINT_FILE}"
+    - echo -n "${CEL_ASSETS_S3_ENDPOINT}" > "${CEL_ASSETS_S3_ENDPOINT_FILE}"
+
+    - touch "${CEL_ASSETS_S3_SECRET_KEY_FILE}"
+    - chmod 600 "${CEL_ASSETS_S3_SECRET_KEY_FILE}"
+    - echo -n "${CEL_ASSETS_S3_SECRET_KEY}" > "${CEL_ASSETS_S3_SECRET_KEY_FILE}"
+  script:
+    - echo "Downloading dependencies..."
+    - bash -x scripts/get_sources.sh
+    - echo "Pushing assets to S3..."
+    - bash -x scripts/push-assets.sh
+  artifacts:
+    untracked: false
+    when: always
+    access: all
+    expire_in: "30 days"
+    paths:
+      - $CI_PROJECT_DIR/build/logs/get_sources.log
+      - $CI_PROJECT_DIR/build/logs/push-all.log
+
+push-assets-generate-provenance-log-get-sources:
+  stage: provenance
+  rules:
+    - if: $CI_PROJECT_NAMESPACE != "celenityy"
+      when: never
+    - if: $CI_COMMIT_TAG
+    - if: $CI_COMMIT_BRANCH == "main"
+      changes:
+      - .gitlab-ci.yml
+      - ublock/badlists.txt
+      - ublock/dove/assets.dev.json
+      - ublock/dove/assets.json
+      - ublock/dove/filters.txt
+      - ublock/dove/unbreak-js.txt
+      - ublock/dove/unbreak-js-testing.txt
+      - ublock/phoenix/assets.dev.json
+      - ublock/phoenix/assets.json
+      - ublock/phoenix/filters.txt
+      - ublock/phoenix/quick-fixes.txt
+      - ublock/titanium/assets.dev.json
+      - ublock/titanium/assets.json
+      - scripts/env.sh
+      - scripts/env_common.sh
+      - scripts/env_external.sh
+      - scripts/env_helpers.sh
+      - scripts/get_sources.sh
+      - scripts/get_sources-cel.sh
+      - scripts/push-assets.sh
+      - scripts/push-assets-cel.sh
+      - scripts/utilities.sh
+      - scripts/versions.sh
+  needs:
+    - job: push-assets
+      optional: false
+
+push-assets-generate-provenance-log-push:
+  stage: provenance
+  rules:
+    - if: $CI_PROJECT_NAMESPACE != "celenityy"
+      when: never
+    - if: $CI_COMMIT_TAG
+    - if: $CI_COMMIT_BRANCH == "main"
+      changes:
+      - .gitlab-ci.yml
+      - ublock/badlists.txt
+      - ublock/dove/assets.dev.json
+      - ublock/dove/assets.json
+      - ublock/dove/filters.txt
+      - ublock/dove/unbreak-js.txt
+      - ublock/dove/unbreak-js-testing.txt
+      - ublock/phoenix/assets.dev.json
+      - ublock/phoenix/assets.json
+      - ublock/phoenix/filters.txt
+      - ublock/phoenix/quick-fixes.txt
+      - ublock/titanium/assets.dev.json
+      - ublock/titanium/assets.json
+      - scripts/env.sh
+      - scripts/env_common.sh
+      - scripts/env_external.sh
+      - scripts/env_helpers.sh
+      - scripts/get_sources.sh
+      - scripts/get_sources-cel.sh
+      - scripts/push-assets.sh
+      - scripts/push-assets-cel.sh
+      - scripts/utilities.sh
+      - scripts/versions.sh
+  needs:
+    - job: push-assets
+      optional: false

@@ -2,7 +2,7 @@
     "assets.json": {
         "content": "internal",
         "updateAfter": 1,
-        "contentURL": "https://gitlab.com/celenityy/assets/-/raw/pages/ublock/phoenix/assets.json"
+        "contentURL": "https://assets.celenity.dev/ublock/phoenix/assets.json"
     },
     "public_suffix_list.dat": {
         "content": "internal",
@@ -16,7 +16,7 @@
         "content": "internal",
         "updateAfter": 1,
         "contentURL": [
-            "https://gitlab.com/celenityy/assets/-/raw/pages/ublock/badlists.txt"
+            "https://assets.celenity.dev/ublock/badlists.txt"
         ]
     },
     "ublock-filters": {
@@ -1304,7 +1304,7 @@
         "group": "default",
         "parent": "Phoenix filters",
         "title": "Phoenix filters",
-        "contentURL": "https://gitlab.com/celenityy/assets/-/raw/pages/ublock/phoenix/filters.txt",
+        "contentURL": "https://assets.celenity.dev/ublock/phoenix/filters.txt",
         "supportURL": "https://phoenix.celenity.dev/issues"
     },
     "quick-fixes": {
@@ -1312,7 +1312,7 @@
         "group": "default",
         "parent": "Phoenix filters",
         "title": "Phoenix filters - Quick fixes",
-        "contentURL": "https://gitlab.com/celenityy/assets/-/raw/pages/ublock/phoenix/quick-fixes.txt",
+        "contentURL": "https://assets.celenity.dev/ublock/phoenix/quick-fixes.txt",
         "supportURL": "https://phoenix.celenity.dev/issues"
     }
 }

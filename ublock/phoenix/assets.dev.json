@@ -2,7 +2,7 @@
     "assets.json": {
         "content": "internal",
         "updateAfter": 1,
-        "contentURL": "https://gitlab.com/celenityy/assets/-/raw/pages/ublock/phoenix/assets.dev.json"
+        "contentURL": "https://assets.celenity.dev/ublock/phoenix/assets.dev.json"
     },
     "public_suffix_list.dat": {
         "content": "internal",
@@ -16,7 +16,7 @@
         "content": "internal",
         "updateAfter": 1,
         "contentURL": [
-            "https://gitlab.com/celenityy/assets/-/raw/pages/ublock/badlists.txt"
+            "https://assets.celenity.dev/ublock/badlists.txt"
         ]
     },
     "ublock-filters": {
