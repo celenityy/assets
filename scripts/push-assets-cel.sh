@@ -87,9 +87,10 @@ readonly target="$1"
 CEL_ASSETS_PUSH_UBO_BADLISTS=0
 CEL_ASSETS_PUSH_UBO_DOVE_ASSETS_DEV=0
 CEL_ASSETS_PUSH_UBO_DOVE_ASSETS_MAIN=0
+CEL_ASSETS_PUSH_UBO_DOVE_BLOCK_JS=0
+CEL_ASSETS_PUSH_UBO_DOVE_BLOCK_JS_UNBREAK=0
+CEL_ASSETS_PUSH_UBO_DOVE_BLOCK_JS_UNBREAK_TESTING=0
 CEL_ASSETS_PUSH_UBO_DOVE_FILTERS=0
-CEL_ASSETS_PUSH_UBO_DOVE_UNBREAK_JS=0
-CEL_ASSETS_PUSH_UBO_DOVE_UNBREAK_JS_TESTING=0
 CEL_ASSETS_PUSH_UBO_PHOENIX_ASSETS_DEV=0
 CEL_ASSETS_PUSH_UBO_PHOENIX_ASSETS_MAIN=0
 CEL_ASSETS_PUSH_UBO_PHOENIX_BEACON=0
@@ -107,15 +108,18 @@ elif [ "${target}" == 'ubo-dove-assets-dev' ]; then
 elif [ "${target}" == 'ubo-dove-assets-main' ]; then
     # Push uBlock Origin - Dove assets (production)
     CEL_ASSETS_PUSH_UBO_DOVE_ASSETS_MAIN=1
+elif [ "${target}" == 'ubo-dove-block-js' ]; then
+    # Push uBlock Origin - Dove filters - Block JS
+    CEL_ASSETS_PUSH_UBO_DOVE_BLOCK_JS=1
+elif [ "${target}" == 'ubo-dove-block-js-unbreak' ]; then
+    # Push uBlock Origin - Dove filters - Block JS - Unbreak
+    CEL_ASSETS_PUSH_UBO_DOVE_BLOCK_JS_UNBREAK=1
+elif [ "${target}" == 'ubo-dove-block-js-unbreak-testing' ]; then
+    # Push uBlock Origin - Dove filters - Block JS - Unbreak (Testing)
+    CEL_ASSETS_PUSH_UBO_DOVE_BLOCK_JS_UNBREAK_TESTING=1
 elif [ "${target}" == 'ubo-dove-filters' ]; then
     # Push uBlock Origin - Dove filters
     CEL_ASSETS_PUSH_UBO_DOVE_FILTERS=1
-elif [ "${target}" == 'ubo-dove-unbreak-js' ]; then
-    # Push uBlock Origin - Dove filters - Block JS - Unbreak
-    CEL_ASSETS_PUSH_UBO_DOVE_UNBREAK_JS=1
-elif [ "${target}" == 'ubo-dove-unbreak-js-testing' ]; then
-    # Push uBlock Origin - Dove filters - Block JS - Unbreak (Testing)
-    CEL_ASSETS_PUSH_UBO_DOVE_UNBREAK_JS_TESTING=1
 elif [ "${target}" == 'ubo-phoenix-assets-dev' ]; then
     # Push uBlock Origin - Phoenix assets (development)
     CEL_ASSETS_PUSH_UBO_PHOENIX_ASSETS_DEV=1
@@ -142,9 +146,10 @@ elif [ "${target}" == 'all' ]; then
     CEL_ASSETS_PUSH_UBO_BADLISTS=1
     CEL_ASSETS_PUSH_UBO_DOVE_ASSETS_DEV=1
     CEL_ASSETS_PUSH_UBO_DOVE_ASSETS_MAIN=1
+    CEL_ASSETS_PUSH_UBO_DOVE_BLOCK_JS=1
+    CEL_ASSETS_PUSH_UBO_DOVE_BLOCK_JS_UNBREAK=1
+    CEL_ASSETS_PUSH_UBO_DOVE_BLOCK_JS_UNBREAK_TESTING=1
     CEL_ASSETS_PUSH_UBO_DOVE_FILTERS=1
-    CEL_ASSETS_PUSH_UBO_DOVE_UNBREAK_JS=1
-    CEL_ASSETS_PUSH_UBO_DOVE_UNBREAK_JS_TESTING=1
     CEL_ASSETS_PUSH_UBO_PHOENIX_ASSETS_DEV=1
     CEL_ASSETS_PUSH_UBO_PHOENIX_ASSETS_MAIN=1
     CEL_ASSETS_PUSH_UBO_PHOENIX_BEACON=1
@@ -159,8 +164,9 @@ else
     echo 'uBlock Origin - Dove assets (development):                    ubo-dove-assets-dev'
     echo 'uBlock Origin - Dove assets (production):                     ubo-dove-assets-main'
     echo 'uBlock Origin - Dove filters:                                 ubo-dove-filters'
-    echo 'uBlock Origin - Dove filters - Block JS - Unbreak:            ubo-dove-unbreak-js'
-    echo 'uBlock Origin - Dove filters - Block JS - Unbreak (Testing):  ubo-dove-unbreak-js-testing'
+    echo 'uBlock Origin - Dove filters - Block JS:                      ubo-dove-block-js'
+    echo 'uBlock Origin - Dove filters - Block JS - Unbreak:            ubo-dove-block-js-unbreak'
+    echo 'uBlock Origin - Dove filters - Block JS - Unbreak (Testing):  ubo-dove-block-js-unbreak-testing'
     echo 'uBlock Origin - Phoenix assets (development):                 ubo-phoenix-assets-dev'
     echo 'uBlock Origin - Phoenix assets (production):                  ubo-phoenix-assets-main'
     echo 'uBlock Origin - Phoenix filters:                              ubo-phoenix-filters'
@@ -175,8 +181,9 @@ readonly CEL_ASSETS_PUSH_UBO_BADLISTS
 readonly CEL_ASSETS_PUSH_UBO_DOVE_ASSETS_DEV
 readonly CEL_ASSETS_PUSH_UBO_DOVE_ASSETS_MAIN
 readonly CEL_ASSETS_PUSH_UBO_DOVE_FILTERS
-readonly CEL_ASSETS_PUSH_UBO_DOVE_UNBREAK_JS
-readonly CEL_ASSETS_PUSH_UBO_DOVE_UNBREAK_JS_TESTING
+readonly CEL_ASSETS_PUSH_UBO_DOVE_BLOCK_JS
+readonly CEL_ASSETS_PUSH_UBO_DOVE_BLOCK_JS_UNBREAK
+readonly CEL_ASSETS_PUSH_UBO_DOVE_BLOCK_JS_UNBREAK_TESTING
 readonly CEL_ASSETS_PUSH_UBO_PHOENIX_ASSETS_DEV
 readonly CEL_ASSETS_PUSH_UBO_PHOENIX_ASSETS_MAIN
 readonly CEL_ASSETS_PUSH_UBO_PHOENIX_BEACON
@@ -258,19 +265,24 @@ function push_ubo_dove_assets_main() {
     add_sha512sum "${CEL_ASSETS_ROOT}/ublock/dove/assets.json" 'ublock/dove'
 }
 
-function push_ubo_dove_filters() {
-    push_file "${CEL_ASSETS_ROOT}/ublock/dove/filters.txt" 'ublock/dove'
-    add_sha512sum "${CEL_ASSETS_ROOT}/ublock/dove/filters.txt" 'ublock/dove'
+function push_ubo_dove_block_js() {
+    push_file "${CEL_ASSETS_ROOT}/ublock/dove/block-js.txt" 'ublock/dove'
+    add_sha512sum "${CEL_ASSETS_ROOT}/ublock/dove/block-js.txt" 'ublock/dove'
 }
 
-function push_ubo_dove_unbreak_js() {
+function push_ubo_dove_block_js_unbreak() {
     push_file "${CEL_ASSETS_ROOT}/ublock/dove/unbreak-js.txt" 'ublock/dove'
     add_sha512sum "${CEL_ASSETS_ROOT}/ublock/dove/unbreak-js.txt" 'ublock/dove'
 }
 
-function push_ubo_dove_unbreak_js_testing() {
+function push_ubo_dove_block_js_unbreak_testing() {
     push_file "${CEL_ASSETS_ROOT}/ublock/dove/unbreak-js-testing.txt" 'ublock/dove'
     add_sha512sum "${CEL_ASSETS_ROOT}/ublock/dove/unbreak-js-testing.txt" 'ublock/dove'
+}
+
+function push_ubo_dove_filters() {
+    push_file "${CEL_ASSETS_ROOT}/ublock/dove/filters.txt" 'ublock/dove'
+    add_sha512sum "${CEL_ASSETS_ROOT}/ublock/dove/filters.txt" 'ublock/dove'
 }
 
 function push_ubo_phoenix_assets_dev() {
@@ -320,16 +332,20 @@ if [ "${CEL_ASSETS_PUSH_UBO_DOVE_ASSETS_MAIN}" == 1 ]; then
     push_ubo_dove_assets_main
 fi
 
+if [ "${CEL_ASSETS_PUSH_UBO_DOVE_BLOCK_JS}" == 1 ]; then
+    push_ubo_dove_block_js
+fi
+
+if [ "${CEL_ASSETS_PUSH_UBO_DOVE_BLOCK_JS_UNBREAK}" == 1 ]; then
+    push_ubo_dove_block_js_unbreak
+fi
+
+if [ "${CEL_ASSETS_PUSH_UBO_DOVE_BLOCK_JS_UNBREAK_TESTING}" == 1 ]; then
+    push_ubo_dove_block_js_unbreak_testing
+fi
+
 if [ "${CEL_ASSETS_PUSH_UBO_DOVE_FILTERS}" == 1 ]; then
     push_ubo_dove_filters
-fi
-
-if [ "${CEL_ASSETS_PUSH_UBO_DOVE_UNBREAK_JS}" == 1 ]; then
-    push_ubo_dove_unbreak_js
-fi
-
-if [ "${CEL_ASSETS_PUSH_UBO_DOVE_UNBREAK_JS_TESTING}" == 1 ]; then
-    push_ubo_dove_unbreak_js_testing
 fi
 
 if [ "${CEL_ASSETS_PUSH_UBO_PHOENIX_ASSETS_DEV}" == 1 ]; then
