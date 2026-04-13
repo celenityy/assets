@@ -92,6 +92,7 @@ CEL_ASSETS_PUSH_UBO_DOVE_UNBREAK_JS=0
 CEL_ASSETS_PUSH_UBO_DOVE_UNBREAK_JS_TESTING=0
 CEL_ASSETS_PUSH_UBO_PHOENIX_ASSETS_DEV=0
 CEL_ASSETS_PUSH_UBO_PHOENIX_ASSETS_MAIN=0
+CEL_ASSETS_PUSH_UBO_PHOENIX_BEACON=0
 CEL_ASSETS_PUSH_UBO_PHOENIX_FILTERS=0
 CEL_ASSETS_PUSH_UBO_PHOENIX_QUICK_FIXES=0
 CEL_ASSETS_PUSH_UBO_TITANIUM_ASSETS_DEV=0
@@ -121,6 +122,9 @@ elif [ "${target}" == 'ubo-phoenix-assets-dev' ]; then
 elif [ "${target}" == 'ubo-phoenix-assets-main' ]; then
     # Push uBlock Origin - Phoenix assets (production)
     CEL_ASSETS_PUSH_UBO_PHOENIX_ASSETS_MAIN=1
+elif [ "${target}" == 'ubo-phoenix-beacon' ]; then
+    # Push uBlock Origin - Phoenix filters - Beacon API Stub
+    CEL_ASSETS_PUSH_UBO_PHOENIX_BEACON=1
 elif [ "${target}" == 'ubo-phoenix-filters' ]; then
     # Push uBlock Origin - Phoenix filters
     CEL_ASSETS_PUSH_UBO_PHOENIX_FILTERS=1
@@ -143,6 +147,7 @@ elif [ "${target}" == 'all' ]; then
     CEL_ASSETS_PUSH_UBO_DOVE_UNBREAK_JS_TESTING=1
     CEL_ASSETS_PUSH_UBO_PHOENIX_ASSETS_DEV=1
     CEL_ASSETS_PUSH_UBO_PHOENIX_ASSETS_MAIN=1
+    CEL_ASSETS_PUSH_UBO_PHOENIX_BEACON=1
     CEL_ASSETS_PUSH_UBO_PHOENIX_FILTERS=1
     CEL_ASSETS_PUSH_UBO_PHOENIX_QUICK_FIXES=1
     CEL_ASSETS_PUSH_UBO_TITANIUM_ASSETS_DEV=1
@@ -159,6 +164,7 @@ else
     echo 'uBlock Origin - Phoenix assets (development):                 ubo-phoenix-assets-dev'
     echo 'uBlock Origin - Phoenix assets (production):                  ubo-phoenix-assets-main'
     echo 'uBlock Origin - Phoenix filters:                              ubo-phoenix-filters'
+    echo 'uBlock Origin - Phoenix filters - Beacon API Stub:            ubo-phoenix-beacon'
     echo 'uBlock Origin - Phoenix filters - Quick fixes:                ubo-phoenix-quick-fixes'
     echo 'uBlock Origin - Titanium assets (development):                ubo-titanium-assets-dev'
     echo 'uBlock Origin - Titanium assets (production):                 ubo-titanium-assets-main'
@@ -173,6 +179,7 @@ readonly CEL_ASSETS_PUSH_UBO_DOVE_UNBREAK_JS
 readonly CEL_ASSETS_PUSH_UBO_DOVE_UNBREAK_JS_TESTING
 readonly CEL_ASSETS_PUSH_UBO_PHOENIX_ASSETS_DEV
 readonly CEL_ASSETS_PUSH_UBO_PHOENIX_ASSETS_MAIN
+readonly CEL_ASSETS_PUSH_UBO_PHOENIX_BEACON
 readonly CEL_ASSETS_PUSH_UBO_PHOENIX_FILTERS
 readonly CEL_ASSETS_PUSH_UBO_PHOENIX_QUICK_FIXES
 readonly CEL_ASSETS_PUSH_UBO_TITANIUM_ASSETS_DEV
@@ -276,6 +283,11 @@ function push_ubo_phoenix_assets_main() {
     add_sha512sum "${CEL_ASSETS_ROOT}/ublock/phoenix/assets.json" 'ublock/phoenix'
 }
 
+function push_ubo_phoenix_beacon() {
+    push_file "${CEL_ASSETS_ROOT}/ublock/phoenix/beacon.txt" 'ublock/phoenix'
+    add_sha512sum "${CEL_ASSETS_ROOT}/ublock/phoenix/beacon.txt" 'ublock/phoenix'
+}
+
 function push_ubo_phoenix_filters() {
     push_file "${CEL_ASSETS_ROOT}/ublock/phoenix/filters.txt" 'ublock/phoenix'
     add_sha512sum "${CEL_ASSETS_ROOT}/ublock/phoenix/filters.txt" 'ublock/phoenix'
@@ -326,6 +338,10 @@ fi
 
 if [ "${CEL_ASSETS_PUSH_UBO_PHOENIX_ASSETS_MAIN}" == 1 ]; then
     push_ubo_phoenix_assets_main
+fi
+
+if [ "${CEL_ASSETS_PUSH_UBO_PHOENIX_BEACON}" == 1 ]; then
+    push_ubo_phoenix_beacon
 fi
 
 if [ "${CEL_ASSETS_PUSH_UBO_PHOENIX_FILTERS}" == 1 ]; then
