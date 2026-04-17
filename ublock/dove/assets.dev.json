@@ -950,7 +950,7 @@
         "content": "filters",
         "group": "privacy",
         "title": "✍️ BadBlock - Fonts",
-        "contentURL": "https://gitlab.com/celenityy/BadBlock/-/raw/pages/abp/fonts.txt",
+        "contentURL": "https://badblock.celenity.dev/abp/fonts.txt",
         "supportURL": "https://badblock.celenity.dev/issues",
         "instructionURL": "https://badblock.celenity.dev"
     },
@@ -959,7 +959,7 @@
         "group": "privacy",
         "title": "🖱️ BadBlock - Click Tracking",
         "tags": "privacy",
-        "contentURL": "https://gitlab.com/celenityy/BadBlock/-/raw/pages/abp/click-tracking.txt",
+        "contentURL": "https://badblock.celenity.dev/abp/click-tracking.txt",
         "supportURL": "https://badblock.celenity.dev/issues",
         "instructionURL": "https://badblock.celenity.dev"
     },
@@ -969,7 +969,7 @@
         "off": true,
         "title": "⚡️ BadBlock Lite",
         "tags": "ads privacy security",
-        "contentURL": "https://gitlab.com/celenityy/BadBlock/-/raw/pages/abp/badblock_lite.txt",
+        "contentURL": "https://badblock.celenity.dev/abp/badblock_lite.txt",
         "supportURL": "https://badblock.celenity.dev/issues",
         "instructionURL": "https://badblock.celenity.dev"
     },
@@ -979,7 +979,7 @@
         "off": true,
         "title": "🔇 BadBlock",
         "tags": "ads privacy security",
-        "contentURL": "https://gitlab.com/celenityy/BadBlock/-/raw/pages/abp/badblock.txt",
+        "contentURL": "https://badblock.celenity.dev/abp/badblock.txt",
         "supportURL": "https://badblock.celenity.dev/issues",
         "instructionURL": "https://badblock.celenity.dev"
     },
@@ -988,7 +988,7 @@
         "group": "multipurpose",
         "title": "🔥 BadBlock+",
         "tags": "ads privacy security annoyances cookies",
-        "contentURL": "https://gitlab.com/celenityy/BadBlock/-/raw/pages/abp/badblock_plus.txt",
+        "contentURL": "https://badblock.celenity.dev/abp/badblock_plus.txt",
         "supportURL": "https://badblock.celenity.dev/issues",
         "instructionURL": "https://badblock.celenity.dev"
     },
@@ -1012,7 +1012,7 @@
         "group": "annoyances",
         "off": true,
         "title": "⭐ celenity's personal filters",
-        "contentURL": "https://gitlab.com/celenityy/BadBlock/-/raw/pages/abp/personal.txt",
+        "contentURL": "https://badblock.celenity.dev/abp/personal.txt",
         "supportURL": "https://badblock.celenity.dev/issues"
     },
     "click2load": {
@@ -1045,7 +1045,7 @@
         "off": true,
         "title": "😇 BadBlock - Ethical Whitelist",
         "tags": "ads privacy",
-        "contentURL": "https://gitlab.com/celenityy/BadBlock/-/raw/pages/abp/ethical_whitelist.txt",
+        "contentURL": "https://badblock.celenity.dev/abp/ethical_whitelist.txt",
         "supportURL": "https://badblock.celenity.dev/issues",
         "instructionURL": "https://badblock.celenity.dev#ethical-whitelist"
     },
@@ -1124,7 +1124,7 @@
         "content": "filters",
         "group": "default",
         "title": "👻 Block Page Visibility",
-        "contentURL": "https://gitlab.com/celenityy/BadBlock/-/raw/pages/hardened/block-page-visibility.txt",
+        "contentURL": "https://badblock.celenity.dev/hardened/block-page-visibility.txt",
         "supportURL": "https://badblock.celenity.dev/issues"
     },
     "privacyessentials": {
@@ -1193,7 +1193,7 @@
         "group": "malware",
         "off": true,
         "title": "⚠️ BadBlock - Unsafe",
-        "contentURL": "https://gitlab.com/celenityy/BadBlock/-/raw/pages/abp/unsafe.txt",
+        "contentURL": "https://badblock.celenity.dev/abp/unsafe.txt",
         "supportURL": "https://badblock.celenity.dev/issues"
     },
     "yal": {
