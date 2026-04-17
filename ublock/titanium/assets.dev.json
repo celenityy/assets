@@ -1250,7 +1250,7 @@
         "group": "default",
         "parent": "🛡️ Block WebGL",
         "title": "🛡️ Block WebGL",
-        "contentURL": "https://gitlab.com/celenityy/BadBlock/-/raw/53a6f40838fe6e77d191373e38358bb7f965eee1/hardened/block-webgl.txt",
+        "contentURL": "https://badblock.celenity.dev/hardened/block-webgl.txt",
         "supportURL": "https://badblock.celenity.dev/issues",
         "instructionURL": "https://codeberg.org/celenity/BadBlock/src/branch/pages/hardened"
     },
@@ -1269,7 +1269,7 @@
         "parent": "🛡️ Block WebGPU",
         "title": "🛡️ Block WebGPU",
         "tags": "privacy security",
-        "contentURL": "https://gitlab.com/celenityy/BadBlock/-/raw/53a6f40838fe6e77d191373e38358bb7f965eee1/hardened/block-webgpu.txt",
+        "contentURL": "https://badblock.celenity.dev/hardened/block-webgpu.txt",
         "supportURL": "https://badblock.celenity.dev/issues",
         "instructionURL": "https://codeberg.org/celenity/BadBlock/src/branch/pages/hardened"
     },
@@ -1279,7 +1279,7 @@
         "parent": "🛡️ Block WebGPU",
         "title": "🛡️ Block WebGPU - Unbreak",
         "tags": "privacy security",
-        "contentURL": "https://codeberg.org/celenity/BadBlock/raw/branch/pages/hardened/unbreak-webgpu.txt",
+        "contentURL": "https://badblock.celenity.dev/hardened/unbreak-webgpu.txt",
         "supportURL": "https://badblock.celenity.dev/issues",
         "instructionURL": "https://codeberg.org/celenity/BadBlock/src/branch/pages/hardened"
     },
@@ -1289,7 +1289,7 @@
         "parent": "🛡️ Block WebRTC",
         "off": true,
         "title": "🛡️ Block WebRTC",
-        "contentURL": "https://gitlab.com/celenityy/BadBlock/-/raw/89d8ba7fb39763836d9ee7858b5185ba2acf4a19/hardened/block-webrtc.txt",
+        "contentURL": "https://badblock.celenity.dev/hardened/block-webrtc.txt",
         "supportURL": "https://badblock.celenity.dev/issues",
         "instructionURL": "https://codeberg.org/celenity/BadBlock/src/branch/pages/hardened"
     },
