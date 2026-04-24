@@ -47,6 +47,7 @@ push-assets:
       - scripts/env_helpers.sh
       - scripts/get_sources.sh
       - scripts/get_sources-cel.sh
+      - scripts/prep.sh
       - scripts/push-assets.sh
       - scripts/push-assets-cel.sh
       - scripts/utilities.sh
@@ -54,34 +55,16 @@ push-assets:
   tags:
     - saas-linux-2xlarge-amd64
   variables:
-    CEL_ASSETS_S3_ACCESS_KEY_FILE: /opt/celenity/celenity-assets-s3-access-key.txt
-    CEL_ASSETS_S3_BUCKET_NAME_FILE: /opt/celenity/celenity-assets-s3-bucket-name.txt
-    CEL_ASSETS_S3_ENDPOINT_FILE: /opt/celenity/celenity-assets-s3-endpoint.txt
-    CEL_ASSETS_S3_SECRET_KEY_FILE: /opt/celenity/celenity-assets-s3-secret-key.txt
     RUNNER_GENERATE_ARTIFACTS_METADATA: true
   before_script:
     - sudo dnf update -y --refresh
-    - mkdir -p /opt/celenity
-
-    - touch "${CEL_ASSETS_S3_ACCESS_KEY_FILE}"
-    - chmod 600 "${CEL_ASSETS_S3_ACCESS_KEY_FILE}"
-    - echo -n "${CEL_ASSETS_S3_ACCESS_KEY}" > "${CEL_ASSETS_S3_ACCESS_KEY_FILE}"
-
-    - touch "${CEL_ASSETS_S3_BUCKET_NAME_FILE}"
-    - chmod 600 "${CEL_ASSETS_S3_BUCKET_NAME_FILE}"
-    - echo -n "${CEL_ASSETS_S3_BUCKET_NAME}" > "${CEL_ASSETS_S3_BUCKET_NAME_FILE}"
-
-    - touch "${CEL_ASSETS_S3_ENDPOINT_FILE}"
-    - chmod 600 "${CEL_ASSETS_S3_ENDPOINT_FILE}"
-    - echo -n "${CEL_ASSETS_S3_ENDPOINT}" > "${CEL_ASSETS_S3_ENDPOINT_FILE}"
-
-    - touch "${CEL_ASSETS_S3_SECRET_KEY_FILE}"
-    - chmod 600 "${CEL_ASSETS_S3_SECRET_KEY_FILE}"
-    - echo -n "${CEL_ASSETS_S3_SECRET_KEY}" > "${CEL_ASSETS_S3_SECRET_KEY_FILE}"
   script:
-    - echo "Downloading dependencies..."
+    - set -euo pipefail
+    - echo 'Preparing secrets...'
+    - bash scripts/prep.sh
+    - echo 'Downloading dependencies...'
     - bash -x scripts/get_sources.sh
-    - echo "Pushing assets to S3..."
+    - echo 'Pushing assets to S3...'
     - bash -x scripts/push-assets.sh
   artifacts:
     untracked: false
@@ -119,6 +102,7 @@ push-assets-generate-provenance-log-get-sources:
       - scripts/env_helpers.sh
       - scripts/get_sources.sh
       - scripts/get_sources-cel.sh
+      - scripts/prep.sh
       - scripts/push-assets.sh
       - scripts/push-assets-cel.sh
       - scripts/utilities.sh
@@ -154,6 +138,7 @@ push-assets-generate-provenance-log-push:
       - scripts/env_helpers.sh
       - scripts/get_sources.sh
       - scripts/get_sources-cel.sh
+      - scripts/prep.sh
       - scripts/push-assets.sh
       - scripts/push-assets-cel.sh
       - scripts/utilities.sh
