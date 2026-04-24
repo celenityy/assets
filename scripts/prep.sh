@@ -9,7 +9,7 @@ set +x
 if [[ -z "${CEL_ASSETS_SET_ENVS+x}" ]]; then
     bash -x $(dirname $0)/env.sh
 fi
-source "$(realpath $(dirname "$0"))/env.sh"
+source $(dirname $0)/env.sh
 
 # Include utilities
 source "${CEL_ASSETS_UTILS}"
