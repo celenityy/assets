@@ -232,7 +232,7 @@ readonly CEL_ASSETS_S3CMD_FLAGS_OVERRIDE
 export CEL_ASSETS_S3CMD_FLAGS_OVERRIDE
 
 # s3cmd flags
-readonly CEL_ASSETS_S3CMD_FLAGS_DEFAULT='--check-certificate --check-hostname --check-md5 --progress --ssl'
+readonly CEL_ASSETS_S3CMD_FLAGS_DEFAULT='--check-certificate --check-hostname --check-md5 --no-guess-mime-type --no-mime-magic --progress --ssl'
 if [[ -z "${CEL_ASSETS_S3CMD_FLAGS+x}" ]]; then
     CEL_ASSETS_S3CMD_FLAGS="${CEL_ASSETS_S3CMD_FLAGS_DEFAULT}"
 elif [[ "${CEL_ASSETS_S3CMD_FLAGS_OVERRIDE}" == 1 ]]; then
