@@ -235,7 +235,7 @@ function push_file() {
 
     echo_red_text "Pushing ${push_file} to S3..."
     source "${CEL_ASSETS_PYENV}"
-    "${CEL_ASSETS_S3CMD}" ${CEL_ASSETS_S3CMD_FLAGS} --default-mime-type="${mime_type}" put "${push_file}" "s3://${s3_bucket_name}/${s3_full_path}" \
+    "${CEL_ASSETS_S3CMD}" ${CEL_ASSETS_S3CMD_FLAGS} --mime-type="${mime_type}" put "${push_file}" "s3://${s3_bucket_name}/${s3_full_path}" \
       --access_key="${s3_access_key}" \
       --secret_key="${s3_secret_key}" \
       --host="${s3_endpoint}" \
