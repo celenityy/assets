@@ -387,7 +387,7 @@ function get_s3cmd() {
     if [ "${CEL_ASSETS_GET_SOURCE_CHECKSUM_UPDATE}" != 1 ]; then
         source "${CEL_ASSETS_PYENV}"
         echo_red_text 'Installing s3cmd...'
-        "${CEL_ASSETS_UV}" pip install --strict "${CEL_ASSETS_S3CMD_DIR}"
+        "${CEL_ASSETS_UV}" pip install --no-editable --strict "${CEL_ASSETS_S3CMD_DIR}"
         echo_green_text "SUCCESS: Set-up s3cmd at ${CEL_ASSETS_S3CMD}"
     fi
 }
