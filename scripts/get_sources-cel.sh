@@ -199,7 +199,7 @@ function download() {
     mkdir -vp "$(dirname "${filepath}")"
 
     echo_red_text "Downloading ${url}..."
-    curl ${CEL_ASSETS_CURL_FLAGS} -sSL "${url}" -o "${filepath}"
+    curl ${CEL_ASSETS_CURL_FLAGS} --location "${url}" --output "${filepath}"
 }
 
 # Extract archives
