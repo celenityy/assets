@@ -55,7 +55,7 @@ function prep_s3() {
         exit 1
     fi
 
-    if [ "${CEL_ASSETS_S3_ACCESS_KEY_FILE}" == 'null' ]; then
+    if [[ "${CEL_ASSETS_S3_ACCESS_KEY_FILE}" == 'null' ]]; then
         echo_red_text 'ERROR: The CEL_ASSETS_S3_ACCESS_KEY_FILE environment variable has not been specified! Aborting...'
         exit 1
     fi
@@ -65,7 +65,7 @@ function prep_s3() {
         exit 1
     fi
 
-    if [ "${CEL_ASSETS_S3_BUCKET_NAME_FILE}" == 'null' ]; then
+    if [[ "${CEL_ASSETS_S3_BUCKET_NAME_FILE}" == 'null' ]]; then
         echo_red_text 'ERROR: The CEL_ASSETS_S3_BUCKET_NAME_FILE environment variable has not been specified! Aborting...'
         exit 1
     fi
@@ -75,7 +75,7 @@ function prep_s3() {
         exit 1
     fi
 
-    if [ "${CEL_ASSETS_S3_ENDPOINT_FILE}" == 'null' ]; then
+    if [[ "${CEL_ASSETS_S3_ENDPOINT_FILE}" == 'null' ]]; then
         echo_red_text 'ERROR: The CEL_ASSETS_S3_ENDPOINT_FILE environment variable has not been specified! Aborting...'
         exit 1
     fi
@@ -85,7 +85,7 @@ function prep_s3() {
         exit 1
     fi
 
-    if [ "${CEL_ASSETS_S3_SECRET_KEY_FILE}" == 'null' ]; then
+    if [[ "${CEL_ASSETS_S3_SECRET_KEY_FILE}" == 'null' ]]; then
         echo_red_text 'ERROR: The CEL_ASSETS_S3_SECRET_KEY_FILE environment variable has not been specified! Aborting...'
         exit 1
     fi
@@ -117,22 +117,22 @@ function prep_s3() {
     echo -n "${CEL_ASSETS_S3_SECRET_KEY}" > "${CEL_ASSETS_S3_SECRET_KEY_FILE}"
 
     # Ensure nothing went wrong...
-    if ! [[ -s "${CEL_ASSETS_S3_ACCESS_KEY_FILE}" ]]; then
+    if [[ ! -s "${CEL_ASSETS_S3_ACCESS_KEY_FILE}" ]]; then
         echo_red_text "ERROR: S3 access key file ${CEL_ASSETS_S3_ACCESS_KEY_FILE} is empty!"
         exit 1
     fi
 
-    if ! [[ -s "${CEL_ASSETS_S3_BUCKET_NAME_FILE}" ]]; then
+    if [[ ! -s "${CEL_ASSETS_S3_BUCKET_NAME_FILE}" ]]; then
         echo_red_text "ERROR: S3 bucket name file ${CEL_ASSETS_S3_BUCKET_NAME_FILE} is empty!"
         exit 1
     fi
 
-    if ! [[ -s "${CEL_ASSETS_S3_ENDPOINT_FILE}" ]]; then
+    if [[ ! -s "${CEL_ASSETS_S3_ENDPOINT_FILE}" ]]; then
         echo_red_text "ERROR: S3 endpoint file ${CEL_ASSETS_S3_ENDPOINT_FILE} is empty!"
         exit 1
     fi
 
-    if ! [[ -s "${CEL_ASSETS_S3_SECRET_KEY_FILE}" ]]; then
+    if [[ ! -s "${CEL_ASSETS_S3_SECRET_KEY_FILE}" ]]; then
         echo_red_text "ERROR: S3 secret key file ${CEL_ASSETS_S3_SECRET_KEY_FILE} is empty!"
         exit 1
     fi

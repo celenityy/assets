@@ -21,14 +21,14 @@ if [[ -z "${CEL_ASSETS_S3_ACCESS_KEY_FILE}" ]]; then
     exit 1
 fi
 
-if ! [[ -f "${CEL_ASSETS_S3_ACCESS_KEY_FILE}" ]]; then
+if [[ ! -f "${CEL_ASSETS_S3_ACCESS_KEY_FILE}" ]]; then
     echo_red_text "ERROR: S3 access key file not found! (${CEL_ASSETS_S3_ACCESS_KEY_FILE})"
     echo_green_text "Please ensure the CEL_ASSETS_S3_ACCESS_KEY_FILE environment variable is set to the correct path in which the key file is located."
     echo_red_text "Aborting..."
     exit 1
 fi
 
-if ! [[ -s "${CEL_ASSETS_S3_ACCESS_KEY_FILE}" ]]; then
+if [[ ! -s "${CEL_ASSETS_S3_ACCESS_KEY_FILE}" ]]; then
     echo_red_text "ERROR: S3 access key file ${CEL_ASSETS_S3_ACCESS_KEY_FILE} is empty!"
     exit 1
 fi
@@ -38,14 +38,14 @@ if [[ -z "${CEL_ASSETS_S3_BUCKET_NAME_FILE}" ]]; then
     exit 1
 fi
 
-if ! [[ -f "${CEL_ASSETS_S3_BUCKET_NAME_FILE}" ]]; then
+if [[ ! -f "${CEL_ASSETS_S3_BUCKET_NAME_FILE}" ]]; then
     echo_red_text "ERROR: S3 bucket name file not found! (${CEL_ASSETS_S3_BUCKET_NAME_FILE})"
     echo_green_text "Please ensure the CEL_ASSETS_S3_BUCKET_NAME_FILE environment variable is set to the correct path in which the bucket name file is located."
     echo_red_text "Aborting..."
     exit 1
 fi
 
-if ! [[ -s "${CEL_ASSETS_S3_BUCKET_NAME_FILE}" ]]; then
+if [[ ! -s "${CEL_ASSETS_S3_BUCKET_NAME_FILE}" ]]; then
     echo_red_text "ERROR: S3 bucket name file ${CEL_ASSETS_S3_BUCKET_NAME_FILE} is empty!"
     exit 1
 fi
@@ -55,14 +55,14 @@ if [[ -z "${CEL_ASSETS_S3_ENDPOINT_FILE}" ]]; then
     exit 1
 fi
 
-if ! [[ -f "${CEL_ASSETS_S3_ENDPOINT_FILE}" ]]; then
+if [[ ! -f "${CEL_ASSETS_S3_ENDPOINT_FILE}" ]]; then
     echo_red_text "ERROR: S3 endpoint file not found! (${CEL_ASSETS_S3_ENDPOINT_FILE})"
     echo_green_text "Please ensure the CEL_ASSETS_S3_ENDPOINT_FILE environment variable is set to the correct path in which the endpoint file is located."
     echo_red_text "Aborting..."
     exit 1
 fi
 
-if ! [[ -s "${CEL_ASSETS_S3_ENDPOINT_FILE}" ]]; then
+if [[ ! -s "${CEL_ASSETS_S3_ENDPOINT_FILE}" ]]; then
     echo_red_text "ERROR: S3 bucket name file ${CEL_ASSETS_S3_ENDPOINT_FILE} is empty!"
     exit 1
 fi
@@ -72,14 +72,14 @@ if [[ -z "${CEL_ASSETS_S3_SECRET_KEY_FILE}" ]]; then
     exit 1
 fi
 
-if ! [[ -f "${CEL_ASSETS_S3_SECRET_KEY_FILE}" ]]; then
+if [[ ! -f "${CEL_ASSETS_S3_SECRET_KEY_FILE}" ]]; then
     echo_red_text "ERROR: S3 secret key file not found! (${CEL_ASSETS_S3_SECRET_KEY_FILE})"
     echo_green_text "Please ensure the CEL_ASSETS_S3_SECRET_KEY_FILE environment variable is set to the correct path in which the key file is located."
     echo_red_text "Aborting..."
     exit 1
 fi
 
-if ! [[ -s "${CEL_ASSETS_S3_SECRET_KEY_FILE}" ]]; then
+if [[ ! -s "${CEL_ASSETS_S3_SECRET_KEY_FILE}" ]]; then
     echo_red_text "ERROR: S3 secret key file ${CEL_ASSETS_S3_SECRET_KEY_FILE} is empty!"
     exit 1
 fi
@@ -102,49 +102,49 @@ CEL_ASSETS_PUSH_UBO_PHOENIX_QUICK_FIXES=0
 CEL_ASSETS_PUSH_UBO_TITANIUM_ASSETS_DEV=0
 CEL_ASSETS_PUSH_UBO_TITANIUM_ASSETS_MAIN=0
 
-if [ "${target}" == 'ubo-badlists' ]; then
+if [[ "${target}" == 'ubo-badlists' ]]; then
     # Push uBlock Origin - Badlists
     CEL_ASSETS_PUSH_UBO_BADLISTS=1
-elif [ "${target}" == 'ubo-dove-assets-dev' ]; then
+elif [[ "${target}" == 'ubo-dove-assets-dev' ]]; then
     # Push uBlock Origin - Dove assets (development)
     CEL_ASSETS_PUSH_UBO_DOVE_ASSETS_DEV=1
-elif [ "${target}" == 'ubo-dove-assets-main' ]; then
+elif [[ "${target}" == 'ubo-dove-assets-main' ]]; then
     # Push uBlock Origin - Dove assets (production)
     CEL_ASSETS_PUSH_UBO_DOVE_ASSETS_MAIN=1
-elif [ "${target}" == 'ubo-dove-block-js' ]; then
+elif [[ "${target}" == 'ubo-dove-block-js' ]]; then
     # Push uBlock Origin - Dove filters - Block JS
     CEL_ASSETS_PUSH_UBO_DOVE_BLOCK_JS=1
-elif [ "${target}" == 'ubo-dove-block-js-unbreak' ]; then
+elif [[ "${target}" == 'ubo-dove-block-js-unbreak' ]]; then
     # Push uBlock Origin - Dove filters - Block JS - Unbreak
     CEL_ASSETS_PUSH_UBO_DOVE_BLOCK_JS_UNBREAK=1
-elif [ "${target}" == 'ubo-dove-block-js-unbreak-testing' ]; then
+elif [[ "${target}" == 'ubo-dove-block-js-unbreak-testing' ]]; then
     # Push uBlock Origin - Dove filters - Block JS - Unbreak (Testing)
     CEL_ASSETS_PUSH_UBO_DOVE_BLOCK_JS_UNBREAK_TESTING=1
-elif [ "${target}" == 'ubo-dove-filters' ]; then
+elif [[ "${target}" == 'ubo-dove-filters' ]]; then
     # Push uBlock Origin - Dove filters
     CEL_ASSETS_PUSH_UBO_DOVE_FILTERS=1
-elif [ "${target}" == 'ubo-phoenix-assets-dev' ]; then
+elif [[ "${target}" == 'ubo-phoenix-assets-dev' ]]; then
     # Push uBlock Origin - Phoenix assets (development)
     CEL_ASSETS_PUSH_UBO_PHOENIX_ASSETS_DEV=1
-elif [ "${target}" == 'ubo-phoenix-assets-main' ]; then
+elif [[ "${target}" == 'ubo-phoenix-assets-main' ]]; then
     # Push uBlock Origin - Phoenix assets (production)
     CEL_ASSETS_PUSH_UBO_PHOENIX_ASSETS_MAIN=1
-elif [ "${target}" == 'ubo-phoenix-beacon' ]; then
+elif [[ "${target}" == 'ubo-phoenix-beacon' ]]; then
     # Push uBlock Origin - Phoenix filters - Beacon API Stub
     CEL_ASSETS_PUSH_UBO_PHOENIX_BEACON=1
-elif [ "${target}" == 'ubo-phoenix-filters' ]; then
+elif [[ "${target}" == 'ubo-phoenix-filters' ]]; then
     # Push uBlock Origin - Phoenix filters
     CEL_ASSETS_PUSH_UBO_PHOENIX_FILTERS=1
-elif [ "${target}" == 'ubo-phoenix-quick-fixes' ]; then
+elif [[ "${target}" == 'ubo-phoenix-quick-fixes' ]]; then
     # Push uBlock Origin - Phoenix filters - Quick fixes
     CEL_ASSETS_PUSH_UBO_PHOENIX_QUICK_FIXES=1
-elif [ "${target}" == 'ubo-titanium-assets-dev' ]; then
+elif [[ "${target}" == 'ubo-titanium-assets-dev' ]]; then
     # Push uBlock Origin - Titanium assets (development)
     CEL_ASSETS_PUSH_UBO_TITANIUM_ASSETS_DEV=1
-elif [ "${target}" == 'ubo-titanium-assets-main' ]; then
+elif [[ "${target}" == 'ubo-titanium-assets-main' ]]; then
     # Push uBlock Origin - Titanium assets (production)
     CEL_ASSETS_PUSH_UBO_TITANIUM_ASSETS_MAIN=1
-elif [ "${target}" == 'all' ]; then
+elif [[ "${target}" == 'all' ]]; then
     # If no argument is specified (or argument is set to "all"), just push everything
     CEL_ASSETS_PUSH_UBO_BADLISTS=1
     CEL_ASSETS_PUSH_UBO_DOVE_ASSETS_DEV=1
@@ -204,12 +204,12 @@ function push_file() {
     local readonly s3_path="$2"
     local readonly s3_full_path="${s3_path}/$(basename "${push_file}")"
 
-    if ! [[ -f "${push_file}" ]]; then
+    if [[ ! -f "${push_file}" ]]; then
         echo_red_text "ERROR: File ${push_file} does not exist!"
         exit 1
     fi
 
-    if ! [[ -s "${push_file}" ]]; then
+    if [[ ! -s "${push_file}" ]]; then
         echo_red_text "ERROR: File ${push_file} is empty!"
         exit 1
     fi
@@ -257,7 +257,7 @@ function add_sha512sum() {
     local readonly sha512sum_file_out="${sha512sum_file_path}/${sha512sum_file_name}-sha512sum.txt"
 
     # If there's already a SHA512sum file, remove it
-    if [ -f "${sha512sum_file_out}" ]; then
+    if [[ -f "${sha512sum_file_out}" ]]; then
         rm -f "${sha512sum_file_out}"
     fi
 
@@ -337,58 +337,58 @@ function push_ubo_titanium_assets_main() {
     add_sha512sum "${CEL_ASSETS_ROOT}/ublock/titanium/assets.json" 'ublock/titanium'
 }
 
-if [ "${CEL_ASSETS_PUSH_UBO_BADLISTS}" == 1 ]; then
+if [[ "${CEL_ASSETS_PUSH_UBO_BADLISTS}" == 1 ]]; then
     push_ubo_badlists
 fi
 
-if [ "${CEL_ASSETS_PUSH_UBO_DOVE_ASSETS_DEV}" == 1 ]; then
+if [[ "${CEL_ASSETS_PUSH_UBO_DOVE_ASSETS_DEV}" == 1 ]]; then
     push_ubo_dove_assets_dev
 fi
 
-if [ "${CEL_ASSETS_PUSH_UBO_DOVE_ASSETS_MAIN}" == 1 ]; then
+if [[ "${CEL_ASSETS_PUSH_UBO_DOVE_ASSETS_MAIN}" == 1 ]]; then
     push_ubo_dove_assets_main
 fi
 
-if [ "${CEL_ASSETS_PUSH_UBO_DOVE_BLOCK_JS}" == 1 ]; then
+if [[ "${CEL_ASSETS_PUSH_UBO_DOVE_BLOCK_JS}" == 1 ]]; then
     push_ubo_dove_block_js
 fi
 
-if [ "${CEL_ASSETS_PUSH_UBO_DOVE_BLOCK_JS_UNBREAK}" == 1 ]; then
+if [[ "${CEL_ASSETS_PUSH_UBO_DOVE_BLOCK_JS_UNBREAK}" == 1 ]]; then
     push_ubo_dove_block_js_unbreak
 fi
 
-if [ "${CEL_ASSETS_PUSH_UBO_DOVE_BLOCK_JS_UNBREAK_TESTING}" == 1 ]; then
+if [[ "${CEL_ASSETS_PUSH_UBO_DOVE_BLOCK_JS_UNBREAK_TESTING}" == 1 ]]; then
     push_ubo_dove_block_js_unbreak_testing
 fi
 
-if [ "${CEL_ASSETS_PUSH_UBO_DOVE_FILTERS}" == 1 ]; then
+if [[ "${CEL_ASSETS_PUSH_UBO_DOVE_FILTERS}" == 1 ]]; then
     push_ubo_dove_filters
 fi
 
-if [ "${CEL_ASSETS_PUSH_UBO_PHOENIX_ASSETS_DEV}" == 1 ]; then
+if [[ "${CEL_ASSETS_PUSH_UBO_PHOENIX_ASSETS_DEV}" == 1 ]]; then
     push_ubo_phoenix_assets_dev
 fi
 
-if [ "${CEL_ASSETS_PUSH_UBO_PHOENIX_ASSETS_MAIN}" == 1 ]; then
+if [[ "${CEL_ASSETS_PUSH_UBO_PHOENIX_ASSETS_MAIN}" == 1 ]]; then
     push_ubo_phoenix_assets_main
 fi
 
-if [ "${CEL_ASSETS_PUSH_UBO_PHOENIX_BEACON}" == 1 ]; then
+if [[ "${CEL_ASSETS_PUSH_UBO_PHOENIX_BEACON}" == 1 ]]; then
     push_ubo_phoenix_beacon
 fi
 
-if [ "${CEL_ASSETS_PUSH_UBO_PHOENIX_FILTERS}" == 1 ]; then
+if [[ "${CEL_ASSETS_PUSH_UBO_PHOENIX_FILTERS}" == 1 ]]; then
     push_ubo_phoenix_filters
 fi
 
-if [ "${CEL_ASSETS_PUSH_UBO_PHOENIX_QUICK_FIXES}" == 1 ]; then
+if [[ "${CEL_ASSETS_PUSH_UBO_PHOENIX_QUICK_FIXES}" == 1 ]]; then
     push_ubo_phoenix_quick_fixes
 fi
 
-if [ "${CEL_ASSETS_PUSH_UBO_TITANIUM_ASSETS_DEV}" == 1 ]; then
+if [[ "${CEL_ASSETS_PUSH_UBO_TITANIUM_ASSETS_DEV}" == 1 ]]; then
     push_ubo_titanium_assets_dev
 fi
 
-if [ "${CEL_ASSETS_PUSH_UBO_TITANIUM_ASSETS_MAIN}" == 1 ]; then
+if [[ "${CEL_ASSETS_PUSH_UBO_TITANIUM_ASSETS_MAIN}" == 1 ]]; then
     push_ubo_titanium_assets_main
 fi

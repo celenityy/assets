@@ -21,11 +21,11 @@ fi
 # Push celenity assets
 readonly CEL_ASSETS_FROM_PUSH=1
 export CEL_ASSETS_FROM_PUSH
-if [ "${CEL_ASSETS_LOG_PUSH}" == 1 ]; then
+if [[ "${CEL_ASSETS_LOG_PUSH}" == 1 ]]; then
     readonly PUSH_LOG_FILE="${CEL_ASSETS_LOG_DIR}/push-${target}.log"
 
     # If the log file already exists, remove it
-    if [ -f "${PUSH_LOG_FILE}" ]; then
+    if [[ -f "${PUSH_LOG_FILE}" ]]; then
         rm "${PUSH_LOG_FILE}"
     fi
 

@@ -24,11 +24,11 @@ fi
 # Get sources
 readonly CEL_ASSETS_FROM_SOURCES=1
 export CEL_ASSETS_FROM_SOURCES
-if [ "${CEL_ASSETS_LOG_SOURCES}" == 1 ]; then
+if [[ "${CEL_ASSETS_LOG_SOURCES}" == 1 ]]; then
     readonly SOURCES_LOG_FILE="${CEL_ASSETS_LOG_DIR}/get_sources.log"
 
     # If the log file already exists, remove it
-    if [ -f "${SOURCES_LOG_FILE}" ]; then
+    if [[ -f "${SOURCES_LOG_FILE}" ]]; then
         rm "${SOURCES_LOG_FILE}"
     fi
 
