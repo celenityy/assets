@@ -199,18 +199,6 @@ fi
 readonly CEL_ASSETS_TAR
 export CEL_ASSETS_TAR
 
-# grep
-if [[ "${CEL_ASSETS_OS}" == 'osx' ]]; then
-  readonly CEL_ASSETS_GREP_DEFAULT='/usr/bin/grep'
-else
-  readonly CEL_ASSETS_GREP_DEFAULT='/bin/grep'
-fi
-if [[ -z "${CEL_ASSETS_GREP+x}" ]]; then
-  CEL_ASSETS_GREP="${CEL_ASSETS_GREP_DEFAULT}"
-fi
-readonly CEL_ASSETS_GREP
-export CEL_ASSETS_GREP
-
 # gzip
 if [[ "${CEL_ASSETS_OS}" == 'osx' ]]; then
   readonly CEL_ASSETS_GZIP_DEFAULT='/usr/bin/gzip'
