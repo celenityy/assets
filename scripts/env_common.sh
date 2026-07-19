@@ -247,14 +247,6 @@ fi
 readonly CEL_ASSETS_MKDIR
 export CEL_ASSETS_MKDIR
 
-# mv
-readonly CEL_ASSETS_MV_DEFAULT='/bin/mv'
-if [[ -z "${CEL_ASSETS_MV+x}" ]]; then
-  CEL_ASSETS_MV="${CEL_ASSETS_MV_DEFAULT}"
-fi
-readonly CEL_ASSETS_MV
-export CEL_ASSETS_MV
-
 # rm
 readonly CEL_ASSETS_RM_DEFAULT='/bin/rm'
 if [[ -z "${CEL_ASSETS_RM+x}" ]]; then

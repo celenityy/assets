@@ -41,7 +41,6 @@ if [[ -z "${CEL_ASSETS_SET_ENVS+x}" ]]; then
   "${CEL_ASSETS_LN}" -sf "${CEL_ASSETS_LS}"         "${CEL_ASSETS_PATH}/ls"
   "${CEL_ASSETS_LN}" -sf "${CEL_ASSETS_MD5SUM}"     "${CEL_ASSETS_PATH}/md5sum"
   "${CEL_ASSETS_LN}" -sf "${CEL_ASSETS_MKDIR}"      "${CEL_ASSETS_PATH}/mkdir"
-  "${CEL_ASSETS_LN}" -sf "${CEL_ASSETS_MV}"         "${CEL_ASSETS_PATH}/mv"
   "${CEL_ASSETS_LN}" -sf "${CEL_ASSETS_PYTHON}"     "${CEL_ASSETS_PATH}/python"
   "${CEL_ASSETS_LN}" -sf "${CEL_ASSETS_PYTHON}"     "${CEL_ASSETS_PATH}/python3"
   "${CEL_ASSETS_LN}" -sf "${CEL_ASSETS_RM}"         "${CEL_ASSETS_PATH}/rm"
