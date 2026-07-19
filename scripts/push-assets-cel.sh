@@ -202,7 +202,7 @@ export TZ="UTC"
 function push_file() {
   local readonly push_file="$1"
   local readonly s3_path="$2"
-  local readonly s3_full_path="${s3_path}/$(basename "${push_file}")"
+  local readonly s3_full_path="${s3_path}/$("${CEL_ASSETS_BASENAME}" "${push_file}")"
 
   if [[ ! -f "${push_file}" ]]; then
     echo_red_text "ERROR: File ${push_file} does not exist!"
@@ -228,10 +228,10 @@ function push_file() {
       ;;
   esac
 
-  local readonly s3_access_key=$(cat "${CEL_ASSETS_S3_ACCESS_KEY_FILE}" | xargs)
-  local readonly s3_bucket_name=$(cat "${CEL_ASSETS_S3_BUCKET_NAME_FILE}" | xargs)
-  local readonly s3_endpoint=$(cat "${CEL_ASSETS_S3_ENDPOINT_FILE}" | xargs)
-  local readonly s3_secret_key=$(cat "${CEL_ASSETS_S3_SECRET_KEY_FILE}" | xargs)
+  local readonly s3_access_key=$("${CEL_ASSETS_CAT}" "${CEL_ASSETS_S3_ACCESS_KEY_FILE}" | "${CEL_ASSETS_XARGS}")
+  local readonly s3_bucket_name=$("${CEL_ASSETS_CAT}" "${CEL_ASSETS_S3_BUCKET_NAME_FILE}" | "${CEL_ASSETS_XARGS}")
+  local readonly s3_endpoint=$("${CEL_ASSETS_CAT}" "${CEL_ASSETS_S3_ENDPOINT_FILE}" | "${CEL_ASSETS_XARGS}")
+  local readonly s3_secret_key=$("${CEL_ASSETS_CAT}" "${CEL_ASSETS_S3_SECRET_KEY_FILE}" | "${CEL_ASSETS_XARGS}")
 
   echo_red_text "Pushing ${push_file} to S3..."
   source "${CEL_ASSETS_PYENV}"
@@ -245,11 +245,11 @@ function push_file() {
 
 function add_sha512sum() {
   local readonly sha512sum_file_in="$1"
-  local readonly sha512sum_file_name=$(basename "${sha512sum_file_in}")
-  local readonly sha512sum_file_path=$(dirname "${sha512sum_file_in}")
+  local readonly sha512sum_file_name=$("${CEL_ASSETS_BASENAME}" "${sha512sum_file_in}")
+  local readonly sha512sum_file_path=$("${CEL_ASSETS_DIRNAME}" "${sha512sum_file_in}")
 
   if [[ -z "${2+x}" ]]; then
-    local readonly sha512sum_s3path=$(basename "${sha512sum_file_path}" | "${CEL_ASSETS_AWK}" '{print tolower($0)}')
+    local readonly sha512sum_s3path=$("${CEL_ASSETS_BASENAME}" "${sha512sum_file_path}" | "${CEL_ASSETS_AWK}" '{print tolower($0)}')
   else
     local readonly sha512sum_s3path="$2"
   fi
@@ -258,10 +258,10 @@ function add_sha512sum() {
 
   # If there's already a SHA512sum file, remove it
   if [[ -f "${sha512sum_file_out}" ]]; then
-    rm -f "${sha512sum_file_out}"
+    "${CEL_ASSETS_RM}" -f "${sha512sum_file_out}"
   fi
 
-  local readonly local_sha512sum=$(sha512sum "${sha512sum_file_in}" | "${CEL_ASSETS_AWK}" '{print $1}')
+  local readonly local_sha512sum=$("${CEL_ASSETS_SHA512SUM}" "${sha512sum_file_in}" | "${CEL_ASSETS_AWK}" '{print $1}')
   echo -n "${local_sha512sum}" > "${sha512sum_file_out}"
 
   push_file "${sha512sum_file_out}" "${sha512sum_s3path}"

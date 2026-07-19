@@ -7,7 +7,7 @@ set +x
 
 # Set-up our environment
 if [[ -z "${CEL_ASSETS_SET_ENVS+x}" ]]; then
-  bash -x $(dirname $0)/env.sh
+  /bin/bash -x $(dirname $0)/env.sh
 fi
 source $(dirname $0)/env.sh
 
@@ -91,29 +91,29 @@ function prep_s3() {
   fi
 
   # Create our directories
-  mkdir -p $(dirname "${CEL_ASSETS_S3_ACCESS_KEY_FILE}")
-  mkdir -p $(dirname "${CEL_ASSETS_S3_BUCKET_NAME_FILE}")
-  mkdir -p $(dirname "${CEL_ASSETS_S3_ENDPOINT_FILE}")
-  mkdir -p $(dirname "${CEL_ASSETS_S3_SECRET_KEY_FILE}")
+  "${CEL_ASSETS_MKDIR}" -p $("${CEL_ASSETS_DIRNAME}" "${CEL_ASSETS_S3_ACCESS_KEY_FILE}")
+  "${CEL_ASSETS_MKDIR}" -p $("${CEL_ASSETS_DIRNAME}" "${CEL_ASSETS_S3_BUCKET_NAME_FILE}")
+  "${CEL_ASSETS_MKDIR}" -p $("${CEL_ASSETS_DIRNAME}" "${CEL_ASSETS_S3_ENDPOINT_FILE}")
+  "${CEL_ASSETS_MKDIR}" -p $("${CEL_ASSETS_DIRNAME}" "${CEL_ASSETS_S3_SECRET_KEY_FILE}")
 
   # Create the S3 access key file
-  touch "${CEL_ASSETS_S3_ACCESS_KEY_FILE}"
-  chmod 600 "${CEL_ASSETS_S3_ACCESS_KEY_FILE}"
+  "${CEL_ASSETS_TOUCH}" "${CEL_ASSETS_S3_ACCESS_KEY_FILE}"
+  "${CEL_ASSETS_CHMOD}" 600 "${CEL_ASSETS_S3_ACCESS_KEY_FILE}"
   echo -n "${CEL_ASSETS_S3_ACCESS_KEY}" > "${CEL_ASSETS_S3_ACCESS_KEY_FILE}"
 
   # Create the S3 bucket name file
-  touch "${CEL_ASSETS_S3_BUCKET_NAME_FILE}"
-  chmod 600 "${CEL_ASSETS_S3_BUCKET_NAME_FILE}"
+  "${CEL_ASSETS_TOUCH}" "${CEL_ASSETS_S3_BUCKET_NAME_FILE}"
+  "${CEL_ASSETS_CHMOD}" 600 "${CEL_ASSETS_S3_BUCKET_NAME_FILE}"
   echo -n "${CEL_ASSETS_S3_BUCKET_NAME}" > "${CEL_ASSETS_S3_BUCKET_NAME_FILE}"
 
   # Create the S3 endpoint file
-  touch "${CEL_ASSETS_S3_ENDPOINT_FILE}"
-  chmod 600 "${CEL_ASSETS_S3_ENDPOINT_FILE}"
+  "${CEL_ASSETS_TOUCH}" "${CEL_ASSETS_S3_ENDPOINT_FILE}"
+  "${CEL_ASSETS_CHMOD}" 600 "${CEL_ASSETS_S3_ENDPOINT_FILE}"
   echo -n "${CEL_ASSETS_S3_ENDPOINT}" > "${CEL_ASSETS_S3_ENDPOINT_FILE}"
 
   # Create the S3 secret key file
-  touch "${CEL_ASSETS_S3_SECRET_KEY_FILE}"
-  chmod 600 "${CEL_ASSETS_S3_SECRET_KEY_FILE}"
+  "${CEL_ASSETS_TOUCH}" "${CEL_ASSETS_S3_SECRET_KEY_FILE}"
+  "${CEL_ASSETS_CHMOD}" 600 "${CEL_ASSETS_S3_SECRET_KEY_FILE}"
   echo -n "${CEL_ASSETS_S3_SECRET_KEY}" > "${CEL_ASSETS_S3_SECRET_KEY_FILE}"
 
   # Ensure nothing went wrong...

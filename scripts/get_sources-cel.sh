@@ -108,14 +108,14 @@ function update_sha512sum() {
     echo_green_text 'SUCCESS: Updated SHA512sum for uv (OS X - x86_64)'
   fi
 
-  rm "${file}"
+  "${CEL_ASSETS_RM}" "${file}"
 }
 
 function validate_sha512sum() {
   local readonly expected_sha512sum="$1"
   local readonly file="$2"
 
-  local readonly local_sha512sum=$(sha512sum "${file}" | "${CEL_ASSETS_AWK}" '{print $1}')
+  local readonly local_sha512sum=$("${CEL_ASSETS_SHA512SUM}" "${file}" | "${CEL_ASSETS_AWK}" '{print $1}')
 
   if [[ "${CEL_ASSETS_GET_SOURCE_CHECKSUM_UPDATE}" == 1 ]]; then
     update_sha512sum "${expected_sha512sum}" "${local_sha512sum}" "${file}"
@@ -125,7 +125,7 @@ function validate_sha512sum() {
     echo "Actual SHA512sum:     ${local_sha512sum}"
 
     # If checksum validation fails, also just remove the file
-    rm -f "${file}"
+    "${CEL_ASSETS_RM}" -f "${file}"
 
     exit 1
   else
@@ -165,14 +165,14 @@ function clone_repo() {
     echo
     if [[ "${REPLY}" =~ ^[Yy]$ ]]; then
       echo_red_text "Removing ${path}..."
-      rm -rf "${path}"
+      "${CEL_ASSETS_RM}" -rf "${path}"
     else
       return 0
     fi
   fi
 
   echo_red_text "Cloning ${url}::${revision}..."
-  git clone --revision="${revision}" --depth=1 "${url}" "${path}"
+  "${CEL_ASSETS_GIT}" clone --revision="${revision}" --depth=1 "${url}" "${path}"
 }
 
 function download() {
@@ -190,16 +190,16 @@ function download() {
     echo
     if [[ "${REPLY}" =~ ^[Yy]$ ]]; then
       echo_red_text "Removing ${filepath}..."
-      rm -f "${filepath}"
+      "${CEL_ASSETS_RM}" -f "${filepath}"
     else
       return 0
     fi
   fi
 
-  mkdir -vp "$(dirname "${filepath}")"
+  "${CEL_ASSETS_MKDIR}" -vp "$("${CEL_ASSETS_DIRNAME}" "${filepath}")"
 
   echo_red_text "Downloading ${url}..."
-  curl ${CEL_ASSETS_CURL_FLAGS} --location "${url}" --output "${filepath}"
+  "${CEL_ASSETS_CURL}" ${CEL_ASSETS_CURL_FLAGS} --location "${url}" --output "${filepath}"
 }
 
 # Extract archives
@@ -214,16 +214,16 @@ function extract() {
 
   # If our temporary directory for extraction already exists, delete it
   if [[ -d "${CEL_ASSETS_EXTERNAL}/temp/${temp_repo_name}" ]]; then
-    rm -rf "${CEL_ASSETS_EXTERNAL}/temp/${temp_repo_name}"
+    "${CEL_ASSETS_RM}" -rf "${CEL_ASSETS_EXTERNAL}/temp/${temp_repo_name}"
   fi
 
   # Create temporary directory for extraction
-  mkdir -p "${CEL_ASSETS_EXTERNAL}/temp/${temp_repo_name}"
+  "${CEL_ASSETS_MKDIR}" -p "${CEL_ASSETS_EXTERNAL}/temp/${temp_repo_name}"
 
   # Extract based on file extension
   case "${archive_path}" in
     *.zip)
-      unzip -q "${archive_path}" -d "${CEL_ASSETS_EXTERNAL}/temp/${temp_repo_name}"
+      "${CEL_ASSETS_UNZIP}" -q "${archive_path}" -d "${CEL_ASSETS_EXTERNAL}/temp/${temp_repo_name}"
       ;;
     *.tar.gz)
       "${CEL_ASSETS_TAR}" xzf "${archive_path}" -C "${CEL_ASSETS_EXTERNAL}/temp/${temp_repo_name}"
@@ -236,14 +236,14 @@ function extract() {
       ;;
     *)
       echo_red_text "ERROR: Unsupported archive format: ${archive_path}"
-      rm -rf "${CEL_ASSETS_EXTERNAL}/temp/${temp_repo_name}"
+      "${CEL_ASSETS_RM}" -rf "${CEL_ASSETS_EXTERNAL}/temp/${temp_repo_name}"
       exit 1
       ;;
   esac
 
-  local readonly top_input_dir=$(ls "${CEL_ASSETS_EXTERNAL}/temp/${temp_repo_name}")
-  cp -rf "${CEL_ASSETS_EXTERNAL}/temp/${temp_repo_name}/${top_input_dir}"/ "${target_path}"
-  rm -rf "${CEL_ASSETS_EXTERNAL}/temp/${temp_repo_name}"
+  local readonly top_input_dir=$("${CEL_ASSETS_LS}" "${CEL_ASSETS_EXTERNAL}/temp/${temp_repo_name}")
+  "${CEL_ASSETS_CP}" -rf "${CEL_ASSETS_EXTERNAL}/temp/${temp_repo_name}/${top_input_dir}"/ "${target_path}"
+  "${CEL_ASSETS_RM}" -rf "${CEL_ASSETS_EXTERNAL}/temp/${temp_repo_name}"
 }
 
 function download_and_extract() {
@@ -258,7 +258,7 @@ function download_and_extract() {
     echo
     if [[ "${REPLY}" =~ ^[Yy]$ ]]; then
       echo_red_text "Removing ${path}..."
-      rm -rf "${path}"
+      "${CEL_ASSETS_RM}" -rf "${path}"
     else
       return 0
     fi
@@ -406,7 +406,7 @@ function get_uv() {
       read -p "Do you want to re-create it? [y/N] " -n 1 -r
       echo
       if [[ "${REPLY}" =~ ^[Yy]$ ]]; then
-        rm -rf "${CEL_ASSETS_PYENV_DIR}" "${CEL_ASSETS_UV_DIR}" "${CEL_ASSETS_UV_LOCAL}"
+        "${CEL_ASSETS_RM}" -rf "${CEL_ASSETS_PYENV_DIR}" "${CEL_ASSETS_UV_DIR}" "${CEL_ASSETS_UV_LOCAL}"
       fi
     fi
   fi

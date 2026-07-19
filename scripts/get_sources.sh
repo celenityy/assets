@@ -4,7 +4,7 @@ set -euo pipefail
 
 # Set-up our environment
 if [[ -z "${CEL_ASSETS_SET_ENVS+x}" ]]; then
-  bash -x $(dirname $0)/env.sh
+  /bin/bash -x $(dirname $0)/env.sh
 fi
 source $(dirname $0)/env.sh
 
@@ -29,13 +29,13 @@ if [[ "${CEL_ASSETS_LOG_SOURCES}" == 1 ]]; then
 
   # If the log file already exists, remove it
   if [[ -f "${SOURCES_LOG_FILE}" ]]; then
-    rm "${SOURCES_LOG_FILE}"
+    "${CEL_ASSETS_RM}" "${SOURCES_LOG_FILE}"
   fi
 
   # Ensure our log directory exists
-  mkdir -vp "${CEL_ASSETS_LOG_DIR}"
+  "${CEL_ASSETS_MKDIR}" -vp "${CEL_ASSETS_LOG_DIR}"
 
-  bash -x "${CEL_ASSETS_SCRIPTS}/get_sources-cel.sh" "${target}" "${mode}" > >(tee -a "${SOURCES_LOG_FILE}") 2>&1
+  /bin/bash -x "${CEL_ASSETS_SCRIPTS}/get_sources-cel.sh" "${target}" "${mode}" > >("${CEL_ASSETS_TEE}" -a "${SOURCES_LOG_FILE}") 2>&1
 else
-  bash -x "${CEL_ASSETS_SCRIPTS}/get_sources-cel.sh" "${target}" "${mode}"
+  /bin/bash -x "${CEL_ASSETS_SCRIPTS}/get_sources-cel.sh" "${target}" "${mode}"
 fi

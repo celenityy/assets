@@ -4,7 +4,7 @@ set -euo pipefail
 
 # Set-up our environment
 if [[ -z "${CEL_ASSETS_SET_ENVS+x}" ]]; then
-  bash -x $(dirname $0)/env.sh
+  /bin/bash -x $(dirname $0)/env.sh
 fi
 source $(dirname $0)/env.sh
 
@@ -26,13 +26,13 @@ if [[ "${CEL_ASSETS_LOG_PUSH}" == 1 ]]; then
 
   # If the log file already exists, remove it
   if [[ -f "${PUSH_LOG_FILE}" ]]; then
-    rm "${PUSH_LOG_FILE}"
+    "${CEL_ASSETS_RM}" "${PUSH_LOG_FILE}"
   fi
 
   # Ensure our log directory exists
-  mkdir -vp "${CEL_ASSETS_LOG_DIR}"
+  "${CEL_ASSETS_MKDIR}" -vp "${CEL_ASSETS_LOG_DIR}"
 
-  bash "${CEL_ASSETS_SCRIPTS}/push-assets-cel.sh" "${target}" > >(tee -a "${PUSH_LOG_FILE}") 2>&1
+  /bin/bash "${CEL_ASSETS_SCRIPTS}/push-assets-cel.sh" "${target}" > >("${CEL_ASSETS_TEE}" -a "${PUSH_LOG_FILE}") 2>&1
 else
-  bash "${CEL_ASSETS_SCRIPTS}/push-assets-cel.sh" "${target}"
+  /bin/bash "${CEL_ASSETS_SCRIPTS}/push-assets-cel.sh" "${target}"
 fi
