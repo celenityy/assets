@@ -10,7 +10,7 @@
 ## These need to be set first, to ensure that they don't interfere with certain variables
 readonly CEL_ASSETS_ENV_OVERRIDE="${CEL_ASSETS_ROOT}/env_override.sh"
 if [[ -f "${CEL_ASSETS_ENV_OVERRIDE}" ]]; then
-    source "${CEL_ASSETS_ENV_OVERRIDE}"
+  source "${CEL_ASSETS_ENV_OVERRIDE}"
 fi
 
 # celenity assets
@@ -51,7 +51,7 @@ export CEL_ASSETS_VERSIONS
 # Should we create a log file for get_sources.sh? (Default)
 readonly CEL_ASSETS_LOG_SOURCES_DEFAULT=1
 if [[ -z "${CEL_ASSETS_LOG_SOURCES+x}" ]]; then
-    CEL_ASSETS_LOG_SOURCES="${CEL_ASSETS_LOG_SOURCES_DEFAULT}"
+  CEL_ASSETS_LOG_SOURCES="${CEL_ASSETS_LOG_SOURCES_DEFAULT}"
 fi
 readonly CEL_ASSETS_LOG_SOURCES
 export CEL_ASSETS_LOG_SOURCES
@@ -59,7 +59,7 @@ export CEL_ASSETS_LOG_SOURCES
 # Should we create a log file for push_assets.sh? (Default)
 readonly CEL_ASSETS_LOG_PUSH_DEFAULT=1
 if [[ -z "${CEL_ASSETS_LOG_PUSH+x}" ]]; then
-    CEL_ASSETS_LOG_PUSH="${CEL_ASSETS_LOG_PUSH_DEFAULT}"
+  CEL_ASSETS_LOG_PUSH="${CEL_ASSETS_LOG_PUSH_DEFAULT}"
 fi
 readonly CEL_ASSETS_LOG_PUSH
 export CEL_ASSETS_LOG_PUSH
@@ -67,55 +67,55 @@ export CEL_ASSETS_LOG_PUSH
 # Directory where we should store log files (if logging is desired)
 readonly CEL_ASSETS_LOG_DIR_DEFAULT="${CEL_ASSETS_BUILD}/logs"
 if [[ -z "${CEL_ASSETS_LOG_DIR+x}" ]]; then
-    CEL_ASSETS_LOG_DIR="${CEL_ASSETS_LOG_DIR_DEFAULT}"
+  CEL_ASSETS_LOG_DIR="${CEL_ASSETS_LOG_DIR_DEFAULT}"
 fi
 readonly CEL_ASSETS_LOG_DIR
 export CEL_ASSETS_LOG_DIR
 
 # GNU awk
 if [[ "${CEL_ASSETS_OS}" == 'osx' ]]; then
-    readonly CEL_ASSETS_AWK_DEFAULT='gawk'
+  readonly CEL_ASSETS_AWK_DEFAULT='gawk'
 else
-    readonly CEL_ASSETS_AWK_DEFAULT='awk'
+  readonly CEL_ASSETS_AWK_DEFAULT='awk'
 fi
 if [[ -z "${CEL_ASSETS_AWK+x}" ]]; then
-    CEL_ASSETS_AWK="${CEL_ASSETS_AWK_DEFAULT}"
+  CEL_ASSETS_AWK="${CEL_ASSETS_AWK_DEFAULT}"
 fi
 readonly CEL_ASSETS_AWK
 export CEL_ASSETS_AWK
 
 # GNU date
 if [[ "${CEL_ASSETS_OS}" == 'osx' ]]; then
-    readonly CEL_ASSETS_DATE_DEFAULT='gdate'
+  readonly CEL_ASSETS_DATE_DEFAULT='gdate'
 else
-    readonly CEL_ASSETS_DATE_DEFAULT='date'
+  readonly CEL_ASSETS_DATE_DEFAULT='date'
 fi
 if [[ -z "${CEL_ASSETS_DATE+x}" ]]; then
-    CEL_ASSETS_DATE="${CEL_ASSETS_DATE_DEFAULT}"
+  CEL_ASSETS_DATE="${CEL_ASSETS_DATE_DEFAULT}"
 fi
 readonly CEL_ASSETS_DATE
 export CEL_ASSETS_DATE
 
 # GNU sed
 if [[ "${CEL_ASSETS_OS}" == 'osx' ]]; then
-    readonly CEL_ASSETS_SED_DEFAULT='gsed'
+  readonly CEL_ASSETS_SED_DEFAULT='gsed'
 else
-    readonly CEL_ASSETS_SED_DEFAULT='sed'
+  readonly CEL_ASSETS_SED_DEFAULT='sed'
 fi
 if [[ -z "${CEL_ASSETS_SED+x}" ]]; then
-    CEL_ASSETS_SED="${CEL_ASSETS_SED_DEFAULT}"
+  CEL_ASSETS_SED="${CEL_ASSETS_SED_DEFAULT}"
 fi
 readonly CEL_ASSETS_SED
 export CEL_ASSETS_SED
 
 # GNU tar
 if [[ "${CEL_ASSETS_OS}" == 'osx' ]]; then
-    readonly CEL_ASSETS_TAR_DEFAULT='gtar'
+  readonly CEL_ASSETS_TAR_DEFAULT='gtar'
 else
-    readonly CEL_ASSETS_TAR_DEFAULT='tar'
+  readonly CEL_ASSETS_TAR_DEFAULT='tar'
 fi
 if [[ -z "${CEL_ASSETS_TAR+x}" ]]; then
-    CEL_ASSETS_TAR="${CEL_ASSETS_TAR_DEFAULT}"
+  CEL_ASSETS_TAR="${CEL_ASSETS_TAR_DEFAULT}"
 fi
 readonly CEL_ASSETS_TAR
 export CEL_ASSETS_TAR
@@ -123,7 +123,7 @@ export CEL_ASSETS_TAR
 # Python
 readonly CEL_ASSETS_PYTHON_DIR_DEFAULT="${CEL_ASSETS_EXTERNAL}/python"
 if [[ -z "${CEL_ASSETS_PYTHON_DIR+x}" ]]; then
-    CEL_ASSETS_PYTHON_DIR="${CEL_ASSETS_PYTHON_DIR_DEFAULT}"
+  CEL_ASSETS_PYTHON_DIR="${CEL_ASSETS_PYTHON_DIR_DEFAULT}"
 fi
 readonly CEL_ASSETS_PYTHON_DIR
 export CEL_ASSETS_PYTHON_DIR
@@ -131,7 +131,7 @@ export CEL_ASSETS_PYTHON_DIR
 # Python (UV) environment
 readonly CEL_ASSETS_PYENV_DIR_DEFAULT="${CEL_ASSETS_BUILD}/pyenv"
 if [[ -z "${CEL_ASSETS_PYENV_DIR+x}" ]]; then
-    CEL_ASSETS_PYENV_DIR="${CEL_ASSETS_PYENV_DIR_DEFAULT}"
+  CEL_ASSETS_PYENV_DIR="${CEL_ASSETS_PYENV_DIR_DEFAULT}"
 fi
 readonly CEL_ASSETS_PYENV_DIR
 readonly CEL_ASSETS_PYENV="${CEL_ASSETS_PYENV_DIR}/bin/activate"
@@ -143,7 +143,7 @@ export CEL_ASSETS_PYTHON
 # s3cmd
 readonly CEL_ASSETS_S3CMD_DIR_DEFAULT="${CEL_ASSETS_EXTERNAL}/s3cmd"
 if [[ -z "${CEL_ASSETS_S3CMD_DIR+x}" ]]; then
-    CEL_ASSETS_S3CMD_DIR="${CEL_ASSETS_S3CMD_DIR_DEFAULT}"
+  CEL_ASSETS_S3CMD_DIR="${CEL_ASSETS_S3CMD_DIR_DEFAULT}"
 fi
 readonly CEL_ASSETS_S3CMD_DIR
 readonly CEL_ASSETS_S3CMD="${CEL_ASSETS_PYENV_DIR}/bin/s3cmd"
@@ -153,7 +153,7 @@ export CEL_ASSETS_S3CMD_DIR
 # UV
 readonly CEL_ASSETS_UV_DIR_DEFAULT="${CEL_ASSETS_EXTERNAL}/uv"
 if [[ -z "${CEL_ASSETS_UV_DIR+x}" ]]; then
-    CEL_ASSETS_UV_DIR="${CEL_ASSETS_UV_DIR_DEFAULT}"
+  CEL_ASSETS_UV_DIR="${CEL_ASSETS_UV_DIR_DEFAULT}"
 fi
 readonly CEL_ASSETS_UV_DIR
 readonly CEL_ASSETS_UV="${CEL_ASSETS_UV_DIR}/uv"
@@ -163,7 +163,7 @@ export CEL_ASSETS_UV_DIR
 # UV (local directory)
 readonly CEL_ASSETS_UV_LOCAL_DEFAULT="${CEL_ASSETS_BUILD}/uv"
 if [[ -z "${CEL_ASSETS_UV_LOCAL+x}" ]]; then
-    CEL_ASSETS_UV_LOCAL="${CEL_ASSETS_UV_LOCAL_DEFAULT}"
+  CEL_ASSETS_UV_LOCAL="${CEL_ASSETS_UV_LOCAL_DEFAULT}"
 fi
 readonly CEL_ASSETS_UV_LOCAL
 export CEL_ASSETS_UV_LOCAL
@@ -171,7 +171,7 @@ export CEL_ASSETS_UV_LOCAL
 # UV cache
 readonly CEL_ASSETS_UV_CACHE_DEFAULT="${CEL_ASSETS_UV_LOCAL}/cache"
 if [[ -z "${CEL_ASSETS_UV_CACHE+x}" ]]; then
-    CEL_ASSETS_UV_CACHE="${CEL_ASSETS_UV_CACHE_DEFAULT}"
+  CEL_ASSETS_UV_CACHE="${CEL_ASSETS_UV_CACHE_DEFAULT}"
 fi
 readonly CEL_ASSETS_UV_CACHE
 export CEL_ASSETS_UV_CACHE
@@ -179,7 +179,7 @@ export CEL_ASSETS_UV_CACHE
 # UV Python directory
 readonly CEL_ASSETS_UV_PYTHON_DEFAULT="${CEL_ASSETS_UV_LOCAL}/python"
 if [[ -z "${CEL_ASSETS_UV_PYTHON+x}" ]]; then
-    CEL_ASSETS_UV_PYTHON="${CEL_ASSETS_UV_PYTHON_DEFAULT}"
+  CEL_ASSETS_UV_PYTHON="${CEL_ASSETS_UV_PYTHON_DEFAULT}"
 fi
 readonly CEL_ASSETS_UV_PYTHON
 export CEL_ASSETS_UV_PYTHON
@@ -187,7 +187,7 @@ export CEL_ASSETS_UV_PYTHON
 # UV tools
 readonly CEL_ASSETS_UV_TOOLS_DEFAULT="${CEL_ASSETS_UV_LOCAL}/tools"
 if [[ -z "${CEL_ASSETS_UV_TOOLS+x}" ]]; then
-    CEL_ASSETS_UV_TOOLS="${CEL_ASSETS_UV_TOOLS_DEFAULT}"
+  CEL_ASSETS_UV_TOOLS="${CEL_ASSETS_UV_TOOLS_DEFAULT}"
 fi
 readonly CEL_ASSETS_UV_TOOLS
 export CEL_ASSETS_UV_TOOLS
@@ -222,7 +222,7 @@ export CEL_ASSETS_CIPHERS
 ## or if they should override them entirely
 readonly CEL_ASSETS_CURL_FLAGS_OVERRIDE_DEFAULT=0
 if [[ -z "${CEL_ASSETS_CURL_FLAGS_OVERRIDE+x}" ]]; then
-    CEL_ASSETS_CURL_FLAGS_OVERRIDE="${CEL_ASSETS_CURL_FLAGS_OVERRIDE_DEFAULT}"
+  CEL_ASSETS_CURL_FLAGS_OVERRIDE="${CEL_ASSETS_CURL_FLAGS_OVERRIDE_DEFAULT}"
 fi
 readonly CEL_ASSETS_CURL_FLAGS_OVERRIDE
 export CEL_ASSETS_CURL_FLAGS_OVERRIDE
@@ -230,11 +230,11 @@ export CEL_ASSETS_CURL_FLAGS_OVERRIDE
 # curl flags
 readonly CEL_ASSETS_CURL_FLAGS_DEFAULT="--disable --no-netrc --ciphers ${CEL_ASSETS_NONTLS13_CIPHERS} --clobber --create-dirs --delegation none --disallow-username-in-url --doh-cert-status --fail --fail-early --junk-session-cookies --no-basic --no-ca-native --no-digest --no-doh-insecure --no-http0.9 --no-insecure --no-negotiate --no-ntlm --no-proxy-basic --no-proxy-ca-native --no-proxy-digest --no-proxy-insecure --no-proxy-ssl-auto-client-cert --no-sessionid --no-ssl-auto-client-cert --no-ssl-no-revoke --no-ssl-revoke-best-effort --no-xattr --parallel --post301 --post302 --post303 --progress-meter --proto -all,https --proto-default https --proto-redir -all,https --proxy-ciphers ${CEL_ASSETS_NONTLS13_CIPHERS} --proxy-tls13-ciphers ${CEL_ASSETS_TLS13_CIPHERS} --referer '' --remove-on-error --retry 5 --retry-all-errors --retry-connrefused --show-error --tls13-ciphers ${CEL_ASSETS_TLS13_CIPHERS} --tlsv1.2 --trace-time --user-agent '' --verbose"
 if [[ -z "${CEL_ASSETS_CURL_FLAGS+x}" ]]; then
-    CEL_ASSETS_CURL_FLAGS="${CEL_ASSETS_CURL_FLAGS_DEFAULT}"
+  CEL_ASSETS_CURL_FLAGS="${CEL_ASSETS_CURL_FLAGS_DEFAULT}"
 elif [[ "${CEL_ASSETS_CURL_FLAGS_OVERRIDE}" == 1 ]]; then
-    CEL_ASSETS_CURL_FLAGS="${CEL_ASSETS_CURL_FLAGS}"
+  CEL_ASSETS_CURL_FLAGS="${CEL_ASSETS_CURL_FLAGS}"
 else
-    CEL_ASSETS_CURL_FLAGS="${CEL_ASSETS_CURL_FLAGS_DEFAULT} ${CEL_ASSETS_CURL_FLAGS}"
+  CEL_ASSETS_CURL_FLAGS="${CEL_ASSETS_CURL_FLAGS_DEFAULT} ${CEL_ASSETS_CURL_FLAGS}"
 fi
 readonly CEL_ASSETS_CURL_FLAGS
 export CEL_ASSETS_CURL_FLAGS
@@ -243,7 +243,7 @@ export CEL_ASSETS_CURL_FLAGS
 ## or if they should override them entirely
 readonly CEL_ASSETS_S3CMD_FLAGS_OVERRIDE_DEFAULT=0
 if [[ -z "${CEL_ASSETS_S3CMD_FLAGS_OVERRIDE+x}" ]]; then
-    CEL_ASSETS_S3CMD_FLAGS_OVERRIDE="${CEL_ASSETS_S3CMD_FLAGS_OVERRIDE_DEFAULT}"
+  CEL_ASSETS_S3CMD_FLAGS_OVERRIDE="${CEL_ASSETS_S3CMD_FLAGS_OVERRIDE_DEFAULT}"
 fi
 readonly CEL_ASSETS_S3CMD_FLAGS_OVERRIDE
 export CEL_ASSETS_S3CMD_FLAGS_OVERRIDE
@@ -251,11 +251,11 @@ export CEL_ASSETS_S3CMD_FLAGS_OVERRIDE
 # s3cmd flags
 readonly CEL_ASSETS_S3CMD_FLAGS_DEFAULT='--check-certificate --check-hostname --check-md5 --no-guess-mime-type --no-mime-magic --progress --ssl'
 if [[ -z "${CEL_ASSETS_S3CMD_FLAGS+x}" ]]; then
-    CEL_ASSETS_S3CMD_FLAGS="${CEL_ASSETS_S3CMD_FLAGS_DEFAULT}"
+  CEL_ASSETS_S3CMD_FLAGS="${CEL_ASSETS_S3CMD_FLAGS_DEFAULT}"
 elif [[ "${CEL_ASSETS_S3CMD_FLAGS_OVERRIDE}" == 1 ]]; then
-    CEL_ASSETS_S3CMD_FLAGS="${CEL_ASSETS_S3CMD_FLAGS}"
+  CEL_ASSETS_S3CMD_FLAGS="${CEL_ASSETS_S3CMD_FLAGS}"
 else
-    CEL_ASSETS_S3CMD_FLAGS="${CEL_ASSETS_S3CMD_FLAGS_DEFAULT} ${CEL_ASSETS_S3CMD_FLAGS}"
+  CEL_ASSETS_S3CMD_FLAGS="${CEL_ASSETS_S3CMD_FLAGS_DEFAULT} ${CEL_ASSETS_S3CMD_FLAGS}"
 fi
 readonly CEL_ASSETS_S3CMD_FLAGS
 export CEL_ASSETS_S3CMD_FLAGS
@@ -265,7 +265,7 @@ export CEL_ASSETS_S3CMD_FLAGS
 # S3 access key
 readonly CEL_ASSETS_S3_ACCESS_KEY_FILE_DEFAULT='/opt/celenity/celenity-assets-s3-access-key.txt'
 if [[ -z "${CEL_ASSETS_S3_ACCESS_KEY_FILE+x}" ]]; then
-    CEL_ASSETS_S3_ACCESS_KEY_FILE="${CEL_ASSETS_S3_ACCESS_KEY_FILE_DEFAULT}"
+  CEL_ASSETS_S3_ACCESS_KEY_FILE="${CEL_ASSETS_S3_ACCESS_KEY_FILE_DEFAULT}"
 fi
 readonly CEL_ASSETS_S3_ACCESS_KEY_FILE
 export CEL_ASSETS_S3_ACCESS_KEY_FILE
@@ -273,7 +273,7 @@ export CEL_ASSETS_S3_ACCESS_KEY_FILE
 # S3 bucket name
 readonly CEL_ASSETS_S3_BUCKET_NAME_FILE_DEFAULT='/opt/celenity/celenity-assets-s3-bucket-name.txt'
 if [[ -z "${CEL_ASSETS_S3_BUCKET_NAME_FILE+x}" ]]; then
-    CEL_ASSETS_S3_BUCKET_NAME_FILE="${CEL_ASSETS_S3_BUCKET_NAME_FILE_DEFAULT}"
+  CEL_ASSETS_S3_BUCKET_NAME_FILE="${CEL_ASSETS_S3_BUCKET_NAME_FILE_DEFAULT}"
 fi
 readonly CEL_ASSETS_S3_BUCKET_NAME_FILE
 export CEL_ASSETS_S3_BUCKET_NAME_FILE
@@ -281,7 +281,7 @@ export CEL_ASSETS_S3_BUCKET_NAME_FILE
 # S3 endpoint
 readonly CEL_ASSETS_S3_ENDPOINT_FILE_DEFAULT='/opt/celenity/celenity-assets-s3-endpoint.txt'
 if [[ -z "${CEL_ASSETS_S3_ENDPOINT_FILE+x}" ]]; then
-    CEL_ASSETS_S3_ENDPOINT_FILE="${CEL_ASSETS_S3_ENDPOINT_FILE_DEFAULT}"
+  CEL_ASSETS_S3_ENDPOINT_FILE="${CEL_ASSETS_S3_ENDPOINT_FILE_DEFAULT}"
 fi
 readonly CEL_ASSETS_S3_ENDPOINT_FILE
 export CEL_ASSETS_S3_ENDPOINT_FILE
@@ -289,7 +289,7 @@ export CEL_ASSETS_S3_ENDPOINT_FILE
 # S3 secret key
 readonly CEL_ASSETS_S3_SECRET_KEY_FILE_DEFAULT='/opt/celenity/celenity-assets-s3-secret-key.txt'
 if [[ -z "${CEL_ASSETS_S3_SECRET_KEY_FILE+x}" ]]; then
-    CEL_ASSETS_S3_SECRET_KEY_FILE="${CEL_ASSETS_S3_SECRET_KEY_FILE_DEFAULT}"
+  CEL_ASSETS_S3_SECRET_KEY_FILE="${CEL_ASSETS_S3_SECRET_KEY_FILE_DEFAULT}"
 fi
 readonly CEL_ASSETS_S3_SECRET_KEY_FILE
 export CEL_ASSETS_S3_SECRET_KEY_FILE

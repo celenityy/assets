@@ -1,9 +1,6 @@
-
-# Tools
-
-## Python
-### Version: 20260602 (3.14.5)
-### https://github.com/astral-sh/python-build-standalone
+# Python
+# Version: 20260602 (3.14.5)
+# https://github.com/astral-sh/python-build-standalone
 readonly PYTHON_GIT_RELEASE='20260602'
 readonly PYTHON_SHA512SUM_LINUX_ARM64='285df86e73b276240538586aa57b35f5ab434f9b37998e4372d064c8c90800ec30f5e09341e2bf147fc43803ed09d37ad496cf76cbf503f870332a64e2aaa353'
 readonly PYTHON_SHA512SUM_LINUX_X86_64='585f3a42d16baf752ace084f35dd3cd811e9ca55d60d28aa0d7863701f370f5054a70c3ccb290b22c7f0114a10fad4f42c4fc15d656b6b71ba083ff02ac1efad'
@@ -11,14 +8,14 @@ readonly PYTHON_SHA512SUM_OSX_ARM64='0f78253ede6cb2f9bfa8bcfbb520166ba9a12c273be
 readonly PYTHON_SHA512SUM_OSX_X86_64='856b809a3f90dd88273a93847b43694a9f731372c27d5ca0bea3aeda08e1d01d5c911d0d7a6cea2b95861b7b7fc3b8bbfe7ee200816c7ef02800729d3094d477'
 readonly PYTHON_VERSION='3.14.5'
 
-## s3cmd
-### https://github.com/s3tools/s3cmd
+# s3cmd
+# https://github.com/s3tools/s3cmd
 readonly S3CMD_COMMIT='cee84f9c539a7bbf5ee73c7bf29a47632119c0c6'
 readonly S3CMD_SHA512SUM='b1b7c792265dfa1ccdd40f816e3463617c168e4317acac930b251ce73fcd3b8eb479d966d4ba93fbe8c0cf251bada64bcd9caf30d1e5e94c20a87a36447c1263'
 
-## uv
-### Version: 0.11.19
-### https://github.com/astral-sh/uv
+# uv
+# Version: 0.11.19
+# https://github.com/astral-sh/uv
 readonly UV_SHA512SUM_LINUX_ARM64='2beb0e792d3639a11c3934130fcd22c006ab8bdc9a08217ff17f3171a5db1b999f2840afe7a38eecd0e474336e091ec6f98d8fb9728f72063939d0c7cea3e9a7'
 readonly UV_SHA512SUM_LINUX_X86_64='1644ee1ada099974a412c28bca66ecee754391ff928cef73a44fd33cd0588ac37fa04ae5b15ee1a5ee1f6c458582cfe1488a66b35e2ee27a4db44135dd5b1024'
 readonly UV_SHA512SUM_OSX_ARM64='c6275c2fbc405f9c5e5a55d80902282110a5163827d75d379c377617fb4895ba1bedb39d43f5f32ab9606262784c1a33506bc2216d7e1c35b4da48463dc0dbb2'
