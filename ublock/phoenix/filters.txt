@@ -1,9 +1,13 @@
 ! Title: Phoenix filters
-! Version: 14Jan2026v1
+! Version: 21Jul2026v1
 ! Expires: 1 hour
 ! Homepage: https://phoenix.celenity.dev
 
 !! This list includes filters designed specifically to work with Phoenix and derivatives (such as IronFox).
+
+! Prevent broken infinite "This web page is being redirected to a new location" redirects
+!! (Caused by us setting `network.http.prompt-temp-redirect` to `true`)
+||benchmark.pl^$first-party,xmlhttprequest,method=post
 
 !#if !env_mobile
 
