@@ -1045,30 +1045,12 @@
     "contentURL": "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/multi.txt",
     "supportURL": "https://github.com/hagezi/dns-blocklists/issues"
   },
-  "multipro": {
-    "content": "filters",
-    "group": "multipurpose",
-    "off": true,
-    "title": "📒 HaGeZi - Multi PRO",
-    "tags": "ads privacy security",
-    "contentURL": "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/pro.txt",
-    "supportURL": "https://github.com/hagezi/dns-blocklists/issues"
-  },
   "multipromini": {
     "content": "filters",
     "group": "multipurpose",
     "title": "📒 HaGeZi - Multi PRO mini",
     "tags": "ads privacy security",
     "contentURL": "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/pro.mini.txt",
-    "supportURL": "https://github.com/hagezi/dns-blocklists/issues"
-  },
-  "multiproplus": {
-    "content": "filters",
-    "group": "multipurpose",
-    "off": true,
-    "title": "📙 HaGeZi - Multi PRO++",
-    "tags": "ads privacy security",
-    "contentURL": "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/pro.plus.txt",
     "supportURL": "https://github.com/hagezi/dns-blocklists/issues"
   },
   "multiproplusmini": {
@@ -1078,15 +1060,6 @@
     "title": "📙 HaGeZi - Multi PRO++ mini",
     "tags": "ads privacy security",
     "contentURL": "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/pro.plus.mini.txt",
-    "supportURL": "https://github.com/hagezi/dns-blocklists/issues"
-  },
-  "multiultimate": {
-    "content": "filters",
-    "group": "multipurpose",
-    "off": true,
-    "title": "📕 HaGeZi - Multi ULTIMATE",
-    "tags": "ads privacy security",
-    "contentURL": "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/ultimate.txt",
     "supportURL": "https://github.com/hagezi/dns-blocklists/issues"
   },
   "multiultimatemini": {
@@ -1112,22 +1085,6 @@
     "title": "💊 Dandelion Sprout's Anti-Malware List",
     "contentURL": "https://gitlab.com/DandelionSprout/adfilt/-/raw/master/Dandelion%20Sprout's%20Anti-Malware%20List.txt",
     "supportURL": "https://github.com/DandelionSprout/adfilt/issues"
-  },
-  "threatintel": {
-    "content": "filters",
-    "group": "malware",
-    "off": true,
-    "title": "🔐 HaGeZi - Threat Intelligence Feeds",
-    "contentURL": "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/tif.txt",
-    "supportURL": "https://github.com/hagezi/dns-blocklists/issues"
-  },
-  "threatintelmed": {
-    "content": "filters",
-    "group": "malware",
-    "off": true,
-    "title": "🔐 HaGeZi - Threat Intelligence Feeds - Medium",
-    "contentURL": "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/tif.medium.txt",
-    "supportURL": "https://github.com/hagezi/dns-blocklists/issues"
   },
   "threatintelmini": {
     "content": "filters",
