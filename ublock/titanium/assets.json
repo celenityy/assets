@@ -1091,7 +1091,6 @@
   "multipromini": {
     "content": "filters",
     "group": "multipurpose",
-    "off": true,
     "title": "📒 HaGeZi - Multi PRO mini",
     "tags": "ads privacy security",
     "contentURL": "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/pro.mini.txt",
@@ -1127,6 +1126,7 @@
   "multiultimatemini": {
     "content": "filters",
     "group": "multipurpose",
+    "off": true,
     "title": "📕 HaGeZi - Multi ULTIMATE mini",
     "tags": "ads privacy security",
     "contentURL": "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/ultimate.mini.txt",
