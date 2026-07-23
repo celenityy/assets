@@ -1142,6 +1142,7 @@
   "pagevis": {
     "content": "filters",
     "group": "default",
+    "off": true,
     "title": "👻 Block Page Visibility",
     "contentURL": "https://badblock.celenity.dev/hardened/block-page-visibility.txt",
     "supportURL": "https://badblock.celenity.dev/issues"
