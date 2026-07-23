@@ -1027,14 +1027,6 @@
     "supportURL": "https://badblock.celenity.dev/issues",
     "instructionURL": "https://badblock.celenity.dev#ethical-whitelist"
   },
-  "gambling": {
-    "content": "filters",
-    "group": "annoyances",
-    "off": true,
-    "title": "🎰 HaGeZi - Gambling",
-    "contentURL": "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/gambling.txt",
-    "supportURL": "https://github.com/hagezi/dns-blocklists/issues"
-  },
   "fmhyplus": {
     "content": "filters",
     "group": "malware",
@@ -1111,14 +1103,6 @@
     "title": "📕 HaGeZi - Multi ULTIMATE mini",
     "tags": "ads privacy security",
     "contentURL": "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/ultimate.mini.txt",
-    "supportURL": "https://github.com/hagezi/dns-blocklists/issues"
-  },
-  "nsfw": {
-    "content": "filters",
-    "group": "annoyances",
-    "off": true,
-    "title": "🔞 HaGeZi - NSFW",
-    "contentURL": "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/nsfw.txt",
     "supportURL": "https://github.com/hagezi/dns-blocklists/issues"
   },
   "pagevis": {
