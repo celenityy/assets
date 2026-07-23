@@ -935,6 +935,7 @@
   "badblockclick": {
     "content": "filters",
     "group": "privacy",
+    "off": true,
     "title": "🖱️ BadBlock - Click Tracking",
     "tags": "privacy",
     "contentURL": "https://badblock.celenity.dev/abp/click-tracking.txt",
