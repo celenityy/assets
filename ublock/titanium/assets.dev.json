@@ -989,10 +989,9 @@
   "click2load": {
     "content": "filters",
     "group": "privacy",
-    "off": true,
-    "title": "⛔ yokoffing's click2load filters",
-    "contentURL": "https://raw.githubusercontent.com/yokoffing/filterlists/main/click2load.txt",
-    "supportURL": "https://github.com/yokoffing/filterlists/issues"
+    "title": "✋ BadBlock - click2load",
+    "contentURL": "https://badblock.celenity.dev/abp/click2load.txt",
+    "supportURL": "https://badblock.celenity.dev/issues"
   },
   "divested": {
     "content": "filters",
@@ -1146,13 +1145,6 @@
     "title": "👻 Block Page Visibility",
     "contentURL": "https://badblock.celenity.dev/hardened/block-page-visibility.txt",
     "supportURL": "https://badblock.celenity.dev/issues"
-  },
-  "privacyessentials": {
-    "content": "filters",
-    "group": "privacy",
-    "title": "🔒 Privacy Essentials",
-    "contentURL": "https://raw.githubusercontent.com/yokoffing/filterlists/main/privacy_essentials.txt",
-    "supportURL": "https://github.com/yokoffing/filterlists/issues"
   },
   "quick-fixes": {
     "content": "filters",
