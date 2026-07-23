@@ -926,6 +926,7 @@
   "3pfonts": {
     "content": "filters",
     "group": "privacy",
+    "off": true,
     "title": "✍️ BadBlock - Fonts",
     "contentURL": "https://badblock.celenity.dev/abp/fonts.txt",
     "supportURL": "https://badblock.celenity.dev/issues",
