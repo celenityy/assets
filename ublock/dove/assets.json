@@ -1168,14 +1168,6 @@
     "contentURL": "https://badblock.celenity.dev/abp/unsafe.txt",
     "supportURL": "https://badblock.celenity.dev/issues"
   },
-  "yal": {
-    "content": "filters",
-    "group": "annoyances",
-    "off": true,
-    "title": "🛠️ yokoffing's Annoyance List",
-    "contentURL": "https://raw.githubusercontent.com/yokoffing/filterlists/main/annoyance_list.txt",
-    "supportURL": "https://github.com/yokoffing/filterlists/issues"
-  },
   "dove-filters": {
     "content": "filters",
     "group": "default",
