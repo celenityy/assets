@@ -994,15 +994,6 @@
     "contentURL": "https://badblock.celenity.dev/abp/click2load.txt",
     "supportURL": "https://badblock.celenity.dev/issues"
   },
-  "divested": {
-    "content": "filters",
-    "group": "multipurpose",
-    "off": true,
-    "title": "Divested Combined Blocklist",
-    "tags": "ads privacy security",
-    "contentURL": "https://divested.dev/hosts-domains-wildcards",
-    "supportURL": "https://codeberg.org/divested/dnsbl/issues"
-  },
   "dyndns": {
     "content": "filters",
     "group": "malware",
